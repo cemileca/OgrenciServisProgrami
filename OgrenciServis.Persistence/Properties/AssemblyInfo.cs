@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OgrenciServis.Domain,")]
+[assembly: AssemblyTitle("OgrenciServis.Persistence")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("OgrenciServis.Domain,")]
+[assembly: AssemblyProduct("OgrenciServis.Persistence")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2b2807e2-189b-44d6-bfc7-b72c1c9e1532")]
+[assembly: Guid("5c150e27-0bde-47a0-bc25-c0387c867ba1")]
 
 // Version information for an assembly consists of the following four values:
 //
