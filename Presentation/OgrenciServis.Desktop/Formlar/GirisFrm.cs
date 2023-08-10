@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OgrenciServis.Desktop
+namespace OgrenciServis.Desktop.Formlar
 {
-    public partial class Form1 : Form
+    public partial class GirisFrm : Form
     {
-        public Form1()
+        public GirisFrm()
         {
             InitializeComponent();
         }
