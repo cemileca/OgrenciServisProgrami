@@ -12,5 +12,9 @@ namespace OgrenciServis.Persistence.Contexts
         public OgrenciServisDbContext(DbContextOptions options) : base(options)
         {
         }
+        public override ValueTask DisposeAsync()
+        {
+            return base.DisposeAsync(); //deneme
+        }
     }
 }
