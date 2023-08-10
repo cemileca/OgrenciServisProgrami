@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>5c150e27-0bde-47a0-bc25-c0387c867ba1</ProjectGuid>
+    <ProjectGuid>110ee86a-ada2-47a4-9a22-4c267b60888c</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OgrenciServis.Persistence</RootNamespace>
