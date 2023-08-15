@@ -1,3 +1,6 @@
+using Microsoft.Extensions.Hosting;
+using OgrenciServis.Persistence;
+
 namespace OgrenciServis.WinForm
 {
     internal static class Program
@@ -11,7 +14,11 @@ namespace OgrenciServis.WinForm
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var hosbuilder =  Host.CreateDefaultBuilder();
+            hosbuilder.ConfigureServices(services => services.AddPersistenceService());
+            hosbuilder.Build().RunAsync();
+
+            Application.Run(new GirisFrm());
         }
     }
 }

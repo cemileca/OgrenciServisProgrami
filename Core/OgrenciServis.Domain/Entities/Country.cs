@@ -1,6 +1,6 @@
 ﻿namespace OgrenciServis.Domain.Entities
 {
-    public class Country
+    public class Country:BaseEntity
     {
     }
 }

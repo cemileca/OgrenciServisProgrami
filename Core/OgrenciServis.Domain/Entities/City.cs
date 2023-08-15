@@ -1,6 +1,6 @@
 ﻿namespace OgrenciServis.Domain.Entities
 {
-    public class City
+    public class City:BaseEntity
     {
     }
 }

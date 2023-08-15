@@ -1,6 +1,6 @@
 ﻿namespace OgrenciServis.Domain.Entities
 {
-    public class District
+    public class District : BaseEntity
     {
     }
 }

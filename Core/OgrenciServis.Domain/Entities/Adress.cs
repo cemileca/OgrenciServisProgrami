@@ -1,6 +1,6 @@
 ﻿namespace OgrenciServis.Domain.Entities
 {
-    public class Adress
+    public class Adress:BaseEntity
     {
         public string AdressName { get; set; }
         public string? AdresDescription { get; set; }
