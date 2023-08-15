@@ -1,4 +1,4 @@
-﻿namespace OgrenciServis.Desktop.Formlar
+﻿namespace OgrenciServis.WinForm
 {
     partial class GirisFrm
     {
@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // GirisFrm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 783);
-            this.Name = "GirisFrm";
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "GirisFrm";
-            this.ResumeLayout(false);
-
         }
 
         #endregion

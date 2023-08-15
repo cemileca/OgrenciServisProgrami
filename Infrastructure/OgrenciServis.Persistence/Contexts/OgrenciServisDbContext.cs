@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OgrenciServis.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace OgrenciServis.Persistence.Contexts
         public OgrenciServisDbContext(DbContextOptions options) : base(options)
         {
         }
-        public override ValueTask DisposeAsync()
-        {
-            return base.DisposeAsync(); //deneme
-        }
+        public DbSet<Parent> Parents { get; set; }
+        public DbSet<Child> Childs { get; set; }
+        public DbSet<Adress> Adresses { get; set; }
+
     }
 }
