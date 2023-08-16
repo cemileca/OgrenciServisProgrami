@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using OgrenciServis.Persistence.Contexts;
@@ -11,9 +12,11 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    partial class OgrenciServisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230816081201_mig_4")]
+    partial class mig_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,6 +38,21 @@ namespace OgrenciServis.Persistence.Migrations
                     b.HasIndex("PersonelsId");
 
                     b.ToTable("AdressPersonel");
+                });
+
+            modelBuilder.Entity("ChildParent", b =>
+                {
+                    b.Property<int>("ChildsId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ParentsId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ChildsId", "ParentsId");
+
+                    b.HasIndex("ParentsId");
+
+                    b.ToTable("ChildParent");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Adress", b =>
@@ -224,9 +242,6 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("ChildId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -249,9 +264,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("ParentId1")
-                        .HasColumnType("integer");
-
                     b.Property<string>("PhoneNo")
                         .HasColumnType("text");
 
@@ -262,10 +274,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChildId");
-
-                    b.HasIndex("ParentId1");
 
                     b.ToTable("Personel");
 
@@ -311,6 +319,21 @@ namespace OgrenciServis.Persistence.Migrations
                     b.HasOne("OgrenciServis.Domain.Entities.Personel", null)
                         .WithMany()
                         .HasForeignKey("PersonelsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChildParent", b =>
+                {
+                    b.HasOne("OgrenciServis.Domain.Entities.Child", null)
+                        .WithMany()
+                        .HasForeignKey("ChildsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OgrenciServis.Domain.Entities.Parent", null)
+                        .WithMany()
+                        .HasForeignKey("ParentsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -361,17 +384,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("OgrenciServis.Domain.Entities.Personel", b =>
-                {
-                    b.HasOne("OgrenciServis.Domain.Entities.Child", null)
-                        .WithMany("Parents")
-                        .HasForeignKey("ChildId");
-
-                    b.HasOne("OgrenciServis.Domain.Entities.Parent", null)
-                        .WithMany("Childs")
-                        .HasForeignKey("ParentId1");
-                });
-
             modelBuilder.Entity("OgrenciServis.Domain.Entities.City", b =>
                 {
                     b.Navigation("Districts");
@@ -387,15 +399,8 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Navigation("Adresses");
                 });
 
-            modelBuilder.Entity("OgrenciServis.Domain.Entities.Child", b =>
-                {
-                    b.Navigation("Parents");
-                });
-
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Parent", b =>
                 {
-                    b.Navigation("Childs");
-
                     b.Navigation("Kinships");
                 });
 #pragma warning restore 612, 618

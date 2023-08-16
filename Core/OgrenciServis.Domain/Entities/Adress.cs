@@ -7,6 +7,6 @@
         public Country? Country { get; set; }
         public City? City { get; set; }
         public District? District { get; set; }
-        public ICollection<Child> Childs { get; set; }
+        public ICollection<Personel>? Personels { get; set; }
     }
 }

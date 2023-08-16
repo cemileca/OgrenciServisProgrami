@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OgrenciServis.Business.Abstracts;
+using OgrenciServis.Domain;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Persistence;
 using OgrenciServis.Persistence.Contexts;
@@ -20,7 +21,7 @@ namespace OgrenciServis.WinForm.Forms
     {
         readonly private OgrenciServisDbContext _context;
 
-         private AdressWriteRepository _adressWriteRepository;
+        private AdressWriteRepository _adressWriteRepository;
 
 
 
@@ -72,21 +73,14 @@ namespace OgrenciServis.WinForm.Forms
         {
             _adressWriteRepository = new AdressWriteRepository(_context);
 
-            Country ctr = new Country();
-            ctr.CountryName = cmbBxUlkeAdlari.Text;
-            City cty = new City();
-            cty.CityName= cmbBxSehirAdlari.Text;
-            District dstrct= new District();
-            dstrct.DistrictName=cmbBxIlceAdlari.Text;
-          await  _adressWriteRepository.AddAsync(new()
-            {
-                AdressName = "Ev Adresi",
-                Country = ctr,
-                City = cty,
-                District = dstrct,
-                AdresDescription = txtAcikAdresEKle.Text
-            }) ;
-          await  _adressWriteRepository.SaveChangesAsyncc();
+
+            VM_AdressAdd vm_Adres = new VM_AdressAdd();
+            vm_Adres.AdressName = txtAdresAdi.Text;
+            vm_Adres.CountryName = cmbBxUlkeAdlari.Text;
+            vm_Adres.CityName = cmbBxSehirAdlari.Text;
+            vm_Adres.DistrictName = cmbBxIlceAdlari.Text;
+            vm_Adres.OpenAdress = txtAcikAdresEKle.Text;
+            _adressWriteRepository.AdressKayıtEkle(vm_Adres, _adressWriteRepository);
         }
         private void btnUlkeEkle_Click(object sender, EventArgs e)
         {
@@ -121,6 +115,9 @@ namespace OgrenciServis.WinForm.Forms
             IfAktif(aktif);
         }
 
-
+        private void AdresKayitFrm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _context.Dispose();
+        }
     }
 }
