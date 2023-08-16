@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Hosting;
 using OgrenciServis.Persistence;
+using OgrenciServis.WinForm.Forms;
 
 namespace OgrenciServis.WinForm
 {
@@ -18,7 +19,7 @@ namespace OgrenciServis.WinForm
             hosbuilder.ConfigureServices(services => services.AddPersistenceService());
             hosbuilder.Build().RunAsync();
 
-            Application.Run(new GirisFrm());
+            Application.Run(new AdresKayitFrm());
         }
     }
 }
