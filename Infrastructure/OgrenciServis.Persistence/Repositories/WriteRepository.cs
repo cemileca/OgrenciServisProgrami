@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Persistence.Contexts;
@@ -14,16 +15,16 @@ namespace OgrenciServis.Persistence.Repositories
             _context = context;
         }
 
-        public DbSet<T> Tabel => throw new NotImplementedException();
+        public DbSet<T> Table => _context.Set<T>();
 
-        public Task<int> AddRangeAsync(T entity)
+        public async Task<bool> AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            EntityEntry<T> entityEntry = await Table.AddAsync(entity);
+            return entityEntry.State == EntityState.Added;
         }
 
-        public Task<int> SaveChangesAsyncc()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<int> SaveChangesAsyncc()
+            =>await _context.SaveChangesAsync();
+        
     }
 }

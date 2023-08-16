@@ -4,7 +4,7 @@ namespace OgrenciServis.Business.Abstracts
 {
     public interface IWriteRepository<T>:IRepository<T>  where T : BaseEntity
     {
-        Task<int> AddRangeAsync(T entity);
+        Task<bool> AddAsync(T entity);
         Task<int> SaveChangesAsyncc();
     }
 }

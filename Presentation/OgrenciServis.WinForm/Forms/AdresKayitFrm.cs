@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OgrenciServis.Business.Abstracts;
+using OgrenciServis.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,13 @@ namespace OgrenciServis.WinForm.Forms
 {
     public partial class AdresKayitFrm : Form
     {
+        readonly private IAdressWriteRepository _adressWriteRepository;
+
+        public AdresKayitFrm(IAdressWriteRepository adressWriteRepository)
+        {
+            _adressWriteRepository = adressWriteRepository;
+        }
+
         public AdresKayitFrm()
         {
             InitializeComponent();
@@ -51,6 +60,14 @@ namespace OgrenciServis.WinForm.Forms
             }
         }
 
+        private void btnEkle_Click(object sender, EventArgs e)
+        {
+            _adressWriteRepository.AddAsync(new()
+            {
+                AdressName = "Ev Adresi",
+                
+            });
+        }
         private void btnUlkeEkle_Click(object sender, EventArgs e)
         {
             AktifPassifEt(cmbBxUlkeAdlari, btnUlkeEkle, txtYeniUlkeEkle, txtYeniUlkeKodu, btnUlkeKayitBitir, aktif);
@@ -83,5 +100,7 @@ namespace OgrenciServis.WinForm.Forms
             AktifPassifEt(cmbBxIlceAdlari, btnYeniIlceEkle, txtYeniIlceEkle, txtYeniılceZipKodu, btnIlceKayitBitir, aktif);
             IfAktif(aktif);
         }
+
+       
     }
 }

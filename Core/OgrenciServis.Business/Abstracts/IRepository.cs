@@ -5,6 +5,6 @@ namespace OgrenciServis.Business.Abstracts
 {
     public interface IRepository<T> where T : BaseEntity
     {
-        public DbSet<T> Tabel { get; }
+        public DbSet<T> Table { get; }
     }
 }

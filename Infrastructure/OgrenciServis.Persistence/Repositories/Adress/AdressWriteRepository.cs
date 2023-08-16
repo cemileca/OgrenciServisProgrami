@@ -4,9 +4,9 @@ using OgrenciServis.Persistence.Contexts;
 
 namespace OgrenciServis.Persistence.Repositories
 {
-    public class ParentReadRepository : ReadRepository<Parent>, IParentReadRepository
+    public class AdressWriteRepository : WriteRepository<Adress>, IAdressWriteRepository
     {
-        public ParentReadRepository(OgrenciServisDbContext context) : base(context)
+        public AdressWriteRepository(OgrenciServisDbContext context) : base(context)
         {
         }
     }

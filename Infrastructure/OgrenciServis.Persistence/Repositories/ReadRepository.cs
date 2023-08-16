@@ -14,11 +14,10 @@ namespace OgrenciServis.Persistence.Repositories
             _context = context;
         }
 
-        public DbSet<T> Tabel => throw new NotImplementedException();
+        public DbSet<T> Table => _context.Set<T>();
 
-        public IQueryable<T> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public  IQueryable<T> GetAll() => Table.AsNoTracking();
+        
+        
     }
 }
