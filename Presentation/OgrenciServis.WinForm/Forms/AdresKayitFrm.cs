@@ -1,5 +1,9 @@
-﻿using OgrenciServis.Business.Abstracts;
+﻿using Microsoft.EntityFrameworkCore;
+using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Domain.Entities;
+using OgrenciServis.Persistence;
+using OgrenciServis.Persistence.Contexts;
+using OgrenciServis.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +18,20 @@ namespace OgrenciServis.WinForm.Forms
 {
     public partial class AdresKayitFrm : Form
     {
-        readonly private IAdressWriteRepository _adressWriteRepository;
+        readonly private OgrenciServisDbContext _context;
 
-        public AdresKayitFrm(IAdressWriteRepository adressWriteRepository)
-        {
-            _adressWriteRepository = adressWriteRepository;
-        }
+         private AdressWriteRepository _adressWriteRepository;
+
+
 
         public AdresKayitFrm()
         {
             InitializeComponent();
+            var option = new DbContextOptionsBuilder<OgrenciServisDbContext>().UseNpgsql(Configurations.ConnectionString).Options;
+            var ctx = new OgrenciServisDbContext(option);
+            _context = ctx;
+            _adressWriteRepository = new AdressWriteRepository(_context);
+
         }
 
         bool aktif = false;
@@ -60,13 +68,25 @@ namespace OgrenciServis.WinForm.Forms
             }
         }
 
-        private void btnEkle_Click(object sender, EventArgs e)
+        private async void btnEkle_Click(object sender, EventArgs e)
         {
-            _adressWriteRepository.AddAsync(new()
+            _adressWriteRepository = new AdressWriteRepository(_context);
+
+            Country ctr = new Country();
+            ctr.CountryName = cmbBxUlkeAdlari.Text;
+            City cty = new City();
+            cty.CityName= cmbBxSehirAdlari.Text;
+            District dstrct= new District();
+            dstrct.DistrictName=cmbBxIlceAdlari.Text;
+          await  _adressWriteRepository.AddAsync(new()
             {
                 AdressName = "Ev Adresi",
-                
-            });
+                Country = ctr,
+                City = cty,
+                District = dstrct,
+                AdresDescription = txtAcikAdresEKle.Text
+            }) ;
+          await  _adressWriteRepository.SaveChangesAsyncc();
         }
         private void btnUlkeEkle_Click(object sender, EventArgs e)
         {
@@ -101,6 +121,6 @@ namespace OgrenciServis.WinForm.Forms
             IfAktif(aktif);
         }
 
-       
+
     }
 }
