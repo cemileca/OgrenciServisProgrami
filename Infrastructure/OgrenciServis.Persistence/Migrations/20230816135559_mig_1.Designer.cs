@@ -12,8 +12,8 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230816081201_mig_4")]
-    partial class mig_4
+    [Migration("20230816135559_mig_1")]
+    partial class mig_1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -130,7 +130,7 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Country", b =>
@@ -140,6 +140,9 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("text");
 
                     b.Property<string>("CountryName")
                         .IsRequired()
@@ -151,15 +154,18 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("UlkeCountryCode")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.HasIndex("CountryCode")
+                        .IsUnique();
+
+                    b.HasIndex("CountryName")
+                        .IsUnique();
+
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.District", b =>
@@ -193,7 +199,10 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("District");
+                    b.HasIndex("DistrictName")
+                        .IsUnique();
+
+                    b.ToTable("Disctricts");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Kinship", b =>
@@ -291,9 +300,6 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("ParentId")
-                        .HasColumnType("integer");
 
                     b.Property<decimal?>("ServiceCost")
                         .HasColumnType("numeric");

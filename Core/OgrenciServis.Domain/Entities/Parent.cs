@@ -2,7 +2,7 @@
 {
     public class Parent : Personel
     {
-        public ICollection<Personel>? Childs { get; set; }
+        public ICollection<Child>? Childs { get; set; }
         public ICollection<Kinship>? Kinships { get; set; } // akrabalık yakınlık derecesi..
     }
 }

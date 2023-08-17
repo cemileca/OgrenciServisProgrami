@@ -1,9 +1,12 @@
-﻿namespace OgrenciServis.Domain.Entities
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace OgrenciServis.Domain.Entities
 {
-    public class Country:BaseEntity
+    public class Country : BaseEntity
     {
         public string CountryName { get; set; }
-        public string? UlkeCountryCode { get; set; }
+        public string? CountryCode { get; set; }
         public ICollection<City>? Cities { get; set; }
     }
 }

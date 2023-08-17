@@ -2,6 +2,7 @@
 using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Persistence.Contexts;
+using System.Linq.Expressions;
 
 namespace OgrenciServis.Persistence.Repositories
 {
@@ -16,8 +17,16 @@ namespace OgrenciServis.Persistence.Repositories
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public  IQueryable<T> GetAll() => Table.AsNoTracking();
-        
-        
+        public IQueryable<T> GetAll() => Table.AsNoTracking();
+
+        public IQueryable<T> GetWhere(Expression<Func<T, bool>> entity) => Table.Where(entity);
+
+        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> entity) =>
+            await Table.FirstOrDefaultAsync(entity);
+
+        public async Task<T> GetByIdAsync(string id) => await Table.FindAsync(Int32.Parse(id));
+
+
+
     }
 }

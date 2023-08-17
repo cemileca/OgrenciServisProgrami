@@ -7,25 +7,23 @@ namespace OgrenciServis.Persistence.Repositories
 {
     public class AdressWriteRepository : WriteRepository<Adress>, IAdressWriteRepository
     {
+        readonly private OgrenciServisDbContext _context;
         public AdressWriteRepository(OgrenciServisDbContext context) : base(context)
         {
+            _context = context;
         }
 
-        public async void AdressKayıtEkle(VM_AdressAdd adress, AdressWriteRepository _AdWrRepo)
+        public async void AdressKayıtEkle(VM_AdressAdd adress, AdressWriteRepository _AdWrRepo, Country cntr, City city,District dstrct)
         {
-            Country country = new Country();
-            country.CountryName = adress.CountryName;
-            City city = new City();
-            city.CityName = adress.CityName;
-            District district = new District();
-            district.DistrictName = adress.DistrictName;
+           
             
+           
             await _AdWrRepo.AddAsync(new()
             {
                 AdressName = adress.AdressName,
-                Country = country,
+                Country = cntr,                
                 City = city,
-                District = district,
+                District = dstrct,
                 AdresDescription = adress.OpenAdress
             }) ;
 

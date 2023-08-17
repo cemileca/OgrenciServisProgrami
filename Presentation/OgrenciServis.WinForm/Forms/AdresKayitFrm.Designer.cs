@@ -128,7 +128,7 @@
             txtAcikAdresEKle.Multiline = true;
             txtAcikAdresEKle.Name = "txtAcikAdresEKle";
             txtAcikAdresEKle.Size = new Size(1074, 222);
-            txtAcikAdresEKle.TabIndex = 3;
+            txtAcikAdresEKle.TabIndex = 7;
             // 
             // txtYeniIlceEkle
             // 
@@ -157,7 +157,7 @@
             txtAdresAdi.Name = "txtAdresAdi";
             txtAdresAdi.PlaceholderText = "Ev Adresi..";
             txtAdresAdi.Size = new Size(389, 39);
-            txtAdresAdi.TabIndex = 3;
+            txtAdresAdi.TabIndex = 0;
             // 
             // txtYeniUlkeEkle
             // 
@@ -211,7 +211,7 @@
             btnEkle.Margin = new Padding(6);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(529, 79);
-            btnEkle.TabIndex = 2;
+            btnEkle.TabIndex = 8;
             btnEkle.Text = "Ekle";
             btnEkle.UseVisualStyleBackColor = true;
             btnEkle.Click += btnEkle_Click;
@@ -222,7 +222,7 @@
             btnIptal.Margin = new Padding(6);
             btnIptal.Name = "btnIptal";
             btnIptal.Size = new Size(498, 79);
-            btnIptal.TabIndex = 2;
+            btnIptal.TabIndex = 9;
             btnIptal.Text = "İptal";
             btnIptal.UseVisualStyleBackColor = true;
             // 
@@ -232,7 +232,7 @@
             btnYeniIlceEkle.Margin = new Padding(6);
             btnYeniIlceEkle.Name = "btnYeniIlceEkle";
             btnYeniIlceEkle.Size = new Size(50, 39);
-            btnYeniIlceEkle.TabIndex = 2;
+            btnYeniIlceEkle.TabIndex = 6;
             btnYeniIlceEkle.Text = "+";
             btnYeniIlceEkle.UseVisualStyleBackColor = true;
             btnYeniIlceEkle.Click += btnYeniIlceEkle_Click;
@@ -243,7 +243,7 @@
             btnSehirEkle.Margin = new Padding(6);
             btnSehirEkle.Name = "btnSehirEkle";
             btnSehirEkle.Size = new Size(50, 39);
-            btnSehirEkle.TabIndex = 2;
+            btnSehirEkle.TabIndex = 4;
             btnSehirEkle.Text = "+";
             btnSehirEkle.UseVisualStyleBackColor = true;
             btnSehirEkle.Click += btnSehirEkle_Click;
@@ -266,7 +266,7 @@
             cmbBxIlceAdlari.Margin = new Padding(6);
             cmbBxIlceAdlari.Name = "cmbBxIlceAdlari";
             cmbBxIlceAdlari.Size = new Size(388, 40);
-            cmbBxIlceAdlari.TabIndex = 1;
+            cmbBxIlceAdlari.TabIndex = 5;
             // 
             // cmbBxSehirAdlari
             // 
@@ -275,7 +275,7 @@
             cmbBxSehirAdlari.Margin = new Padding(6);
             cmbBxSehirAdlari.Name = "cmbBxSehirAdlari";
             cmbBxSehirAdlari.Size = new Size(388, 40);
-            cmbBxSehirAdlari.TabIndex = 1;
+            cmbBxSehirAdlari.TabIndex = 3;
             // 
             // lblAcikAdres
             // 
@@ -346,6 +346,7 @@
             Name = "AdresKayitFrm";
             Text = "Adres Kayıt Formu";
             FormClosed += AdresKayitFrm_FormClosed;
+            Load += AdresKayitFrm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

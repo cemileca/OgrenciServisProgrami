@@ -37,6 +37,21 @@ namespace OgrenciServis.Persistence.Migrations
                     b.ToTable("AdressPersonel");
                 });
 
+            modelBuilder.Entity("ChildParent", b =>
+                {
+                    b.Property<int>("ChildsId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ParentsId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ChildsId", "ParentsId");
+
+                    b.HasIndex("ParentsId");
+
+                    b.ToTable("ChildParent");
+                });
+
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Adress", b =>
                 {
                     b.Property<int>("Id")
@@ -112,7 +127,7 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("City");
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Country", b =>
@@ -122,6 +137,9 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CountryCode")
+                        .HasColumnType("text");
 
                     b.Property<string>("CountryName")
                         .IsRequired()
@@ -133,15 +151,18 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("UlkeCountryCode")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.HasIndex("CountryCode")
+                        .IsUnique();
+
+                    b.HasIndex("CountryName")
+                        .IsUnique();
+
+                    b.ToTable("Countries");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.District", b =>
@@ -175,7 +196,10 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("District");
+                    b.HasIndex("DistrictName")
+                        .IsUnique();
+
+                    b.ToTable("Disctricts");
                 });
 
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Kinship", b =>
@@ -224,9 +248,6 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("ChildId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("timestamp with time zone");
 
@@ -249,9 +270,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("ParentId1")
-                        .HasColumnType("integer");
-
                     b.Property<string>("PhoneNo")
                         .HasColumnType("text");
 
@@ -262,10 +280,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChildId");
-
-                    b.HasIndex("ParentId1");
 
                     b.ToTable("Personel");
 
@@ -283,9 +297,6 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("ParentId")
-                        .HasColumnType("integer");
 
                     b.Property<decimal?>("ServiceCost")
                         .HasColumnType("numeric");
@@ -311,6 +322,21 @@ namespace OgrenciServis.Persistence.Migrations
                     b.HasOne("OgrenciServis.Domain.Entities.Personel", null)
                         .WithMany()
                         .HasForeignKey("PersonelsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ChildParent", b =>
+                {
+                    b.HasOne("OgrenciServis.Domain.Entities.Child", null)
+                        .WithMany()
+                        .HasForeignKey("ChildsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OgrenciServis.Domain.Entities.Parent", null)
+                        .WithMany()
+                        .HasForeignKey("ParentsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -361,17 +387,6 @@ namespace OgrenciServis.Persistence.Migrations
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("OgrenciServis.Domain.Entities.Personel", b =>
-                {
-                    b.HasOne("OgrenciServis.Domain.Entities.Child", null)
-                        .WithMany("Parents")
-                        .HasForeignKey("ChildId");
-
-                    b.HasOne("OgrenciServis.Domain.Entities.Parent", null)
-                        .WithMany("Childs")
-                        .HasForeignKey("ParentId1");
-                });
-
             modelBuilder.Entity("OgrenciServis.Domain.Entities.City", b =>
                 {
                     b.Navigation("Districts");
@@ -387,15 +402,8 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Navigation("Adresses");
                 });
 
-            modelBuilder.Entity("OgrenciServis.Domain.Entities.Child", b =>
-                {
-                    b.Navigation("Parents");
-                });
-
             modelBuilder.Entity("OgrenciServis.Domain.Entities.Parent", b =>
                 {
-                    b.Navigation("Childs");
-
                     b.Navigation("Kinships");
                 });
 #pragma warning restore 612, 618
