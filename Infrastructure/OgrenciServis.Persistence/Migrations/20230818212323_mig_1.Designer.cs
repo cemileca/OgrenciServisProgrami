@@ -12,7 +12,7 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230816135559_mig_1")]
+    [Migration("20230818212323_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -114,7 +114,7 @@ namespace OgrenciServis.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
@@ -369,7 +369,9 @@ namespace OgrenciServis.Persistence.Migrations
                 {
                     b.HasOne("OgrenciServis.Domain.Entities.Country", "Country")
                         .WithMany("Cities")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Country");
                 });

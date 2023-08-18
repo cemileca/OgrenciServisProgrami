@@ -8,6 +8,6 @@ namespace OgrenciServis.Business.Abstracts
         IQueryable<T> GetAll();
         IQueryable<T> GetWhere(Expression<Func<T,bool>> entity);
         Task<T> GetSingleAsync(Expression<Func<T, bool>> entity);
-        Task<T> GetByIdAsync(string id);
+        Task<T> GetByIdAsync(int id);
     }
 }

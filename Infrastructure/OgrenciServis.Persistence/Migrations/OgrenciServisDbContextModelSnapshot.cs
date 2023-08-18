@@ -111,7 +111,7 @@ namespace OgrenciServis.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("CountryId")
+                    b.Property<int>("CountryId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
@@ -366,7 +366,9 @@ namespace OgrenciServis.Persistence.Migrations
                 {
                     b.HasOne("OgrenciServis.Domain.Entities.Country", "Country")
                         .WithMany("Cities")
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Country");
                 });

@@ -24,7 +24,7 @@ namespace OgrenciServis.Persistence.Repositories
         public async Task<T> GetSingleAsync(Expression<Func<T, bool>> entity) =>
             await Table.FirstOrDefaultAsync(entity);
 
-        public async Task<T> GetByIdAsync(string id) => await Table.FindAsync(Int32.Parse(id));
+        public async Task<T> GetByIdAsync(int id) => await Table.FindAsync(id);
 
 
 
