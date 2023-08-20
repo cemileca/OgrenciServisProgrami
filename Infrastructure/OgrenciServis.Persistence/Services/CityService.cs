@@ -10,6 +10,7 @@ namespace OgrenciServis.Persistence.Services
     public class CityService : ICityService
     {
         readonly CityWriteRepository _cityWriteRepository;
+        readonly CityReadRepository _cityReadRepository;
         readonly CountryReadRepository _countryReadRepository;
         readonly private OgrenciServisDbContext _context;
 
@@ -21,6 +22,7 @@ namespace OgrenciServis.Persistence.Services
 
             _cityWriteRepository = new CityWriteRepository(_context);
             _countryReadRepository = new CountryReadRepository(_context);
+            _cityReadRepository = new CityReadRepository(_context);
         }
 
         public async Task AddCityAsync(VM_CityAdd vM_City)
@@ -34,6 +36,12 @@ namespace OgrenciServis.Persistence.Services
             city.Country = country;
             await _cityWriteRepository.AddAsync(city);
             await _cityWriteRepository.SaveChangesAsyncc();
+        }
+
+        public IQueryable<City> GetAllCitiesByCountry(int CountryId)
+        {
+            var query = _cityReadRepository.GetAll().Where(a => a.CountryId == CountryId);
+            return query;
         }
 
         public Task RemoveCityAsync(int Id)

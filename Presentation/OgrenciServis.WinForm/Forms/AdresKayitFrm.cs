@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OgrenciServis.Domain;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Domain.ViewModel;
 using OgrenciServis.Persistence;
@@ -11,70 +12,52 @@ namespace OgrenciServis.WinForm.Forms
     public partial class AdresKayitFrm : Form
     {
         readonly private OgrenciServisDbContext _context;
-        private AdressWriteRepository _adressWriteRepository;
-        private CountryWriteRepository _countryWriteRepository;
-        private CountryReadRepository _countryReadRepository;
-        private CityReadRepository _cityReadRepository;
-        private CityWriteRepository _cityWriteRepository;
-
+        int IdUlkeSehirIlceID;
+        int UlkId, SehirId, IlceId;
         #region YARDIMCI METODLAR
 
-        bool aktif = false;
-        bool IsTxtBxEmpty = true;
-        void AktifPassifEt(ComboBox cmbBx1, Button btnArti, TextBox txt1, TextBox txt2, Button btn1, bool aktif)
+        enum UlkeSehirIlceSec
         {
-            if (!aktif)
-            {
-                txt1.Enabled = true;
-                txt2.Enabled = true;
-                btn1.Enabled = true;
-                cmbBx1.Enabled = false;
-                btnArti.Text = "_";
-            }
-            else if (aktif)
-            {
-                cmbBx1.Enabled = true;
-                btnArti.Text = "+";
-                txt1.Enabled = false;
-                txt2.Enabled = false;
-                btn1.Enabled = false;
-
-            }
-
+            Ulke,
+            Sehir,
+            Ilce
         }
-        void IfAktif(bool aktifMi)
+        void AktifPassifEt()
         {
-            if (!aktif)
+            foreach (var item in grpBxYeniAdresEkle.Controls)
             {
-                aktif = true;
+                if (!(item is Label))
+                {
+                    (item as Control).Enabled = false;
+                }
+
+            }
+        }
+        void CmbBxUlkeDoldurma()
+        {
+            CountryService cs = new CountryService();
+            var query = cs.GetAllCountry();
+            cmbBxUlkeAdlari.DataSource = query.ToList();
+            cmbBxUlkeAdlari.DisplayMember = "CountryName";
+            cmbBxUlkeAdlari.SelectedIndex = -1;
+            cs = null;
+        }
+        void CmbBxSehirDoldurma()
+        {
+            if (cmbBxUlkeAdlari.SelectedIndex != -1)
+            {
+                CityService cityService = new CityService();
+                var query = cityService.GetAllCitiesByCountry(UlkId);
+                cmbBxSehirAdlari.DataSource = query.ToList();
+                cmbBxSehirAdlari.DisplayMember = "CityName";
+                cmbBxSehirAdlari.SelectedIndex = -1;
+                cityService = null;
             }
             else
             {
-                aktif = false;
+                MessageBox.Show("Lütfen Bir Ülke Seçiniz");
             }
         }
-
-        void CmbBxUlkeDoldurma(CountryReadRepository repo, ComboBox cmbBx)
-        {
-            repo = new CountryReadRepository(_context);
-
-            var query = repo.GetAll().ToList();
-            cmbBx.DisplayMember = "CountryName";
-            cmbBx.DataSource = query.ToList();
-            cmbBx.SelectedIndex = -1;
-            repo = null;
-        }
-        void CmbSehirDoldurma(CityReadRepository cityRepo, ComboBox cmbSehir)
-        {
-            cityRepo = new(_context);
-            var query = cityRepo.GetAll().ToList();
-            cmbBxSehirAdlari.DisplayMember = "CityName";
-            cmbBxSehirAdlari.DataSource = query;
-            cmbBxSehirAdlari.SelectedIndex = -1;
-            cityRepo = null;
-
-        }
-
         void Temizle(Control.ControlCollection controlCollection)
         {
             foreach (var item in controlCollection)
@@ -92,29 +75,69 @@ namespace OgrenciServis.WinForm.Forms
             }
         }
 
-        bool TxtBxIsEmptyControl(bool IsEmpty, TextBox txtAd, TextBox txtKod)
+        async void YeniSehirEkle()
         {
-            if (txtAd.Text != string.Empty && txtAd.Text.Length > 1 && txtKod.Text != string.Empty && txtKod.Text.Length > 1 && txtKod.Text.Length < 6)
+            if (cmbBxUlkeAdlari.SelectedIndex != -1)
             {
-                IsEmpty = false;
+                VM_CityAdd vM_CityAdd = new VM_CityAdd();
+                vM_CityAdd.CityName = txtYeniSehirEkle.Text.Trim();
+                vM_CityAdd.CityDescricption = "geçici açıklama";
+                vM_CityAdd.CountryId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Ulke);
+                CityService _cityService = new CityService();
+                await _cityService.AddCityAsync(vM_CityAdd);
+                vM_CityAdd = null;
             }
             else
             {
-                IsEmpty = true;
-                MessageBox.Show("Ülke Adı ve Ülke Kodu Boş geçilemez. Lütfen Boşlukları doldurun.");
-            }
-            return IsEmpty;
-        }
-        async void YeniSehirEkle()
-        {
-            VM_CityAdd vM_CityAdd = new VM_CityAdd();
-            vM_CityAdd.CityName = txtYeniSehirEkle.Text.Trim();
-            vM_CityAdd.CityDescricption = "geçici açıklama";
-            vM_CityAdd.CountryId = cmbBxUlkeAdlari.SelectedIndex != -1 ? ((Country)cmbBxUlkeAdlari.SelectedItem).Id : 1;
-            CityService _cityService = new CityService();
-            await _cityService.AddCityAsync(vM_CityAdd);
-            vM_CityAdd = null;
+                MessageBox.Show("Lütfen bir Ülke Seçiniz");
 
+            }
+
+        }
+        async void YeniUlkeEkle()
+        {
+            VM_CountryAdd vM_CountryAdd = new VM_CountryAdd();
+            vM_CountryAdd.CountryName = txtYeniUlkeEkle.Text.Trim();
+            vM_CountryAdd.CountryCode = txtYeniUlkeKodu.Text.Trim();
+            vM_CountryAdd.CountryDescription = txtUlkeAciklama.Text.Trim();
+
+            CountryService _countryService = new CountryService();
+            await _countryService.AddCountryAsync(vM_CountryAdd);
+            vM_CountryAdd = null;
+        }
+        int UlkeSehirIlceIdGetir(UlkeSehirIlceSec ulkeSehirIlceSec)
+        {
+
+
+            if (ulkeSehirIlceSec == UlkeSehirIlceSec.Ulke)
+            {
+                IdUlkeSehirIlceID = ((Country)cmbBxUlkeAdlari.SelectedItem).Id;
+            }
+            else if (ulkeSehirIlceSec == UlkeSehirIlceSec.Sehir)
+            {
+                IdUlkeSehirIlceID = ((City)cmbBxSehirAdlari.SelectedItem).Id;
+
+            }
+            else if (ulkeSehirIlceSec == UlkeSehirIlceSec.Ilce)
+            {
+                IdUlkeSehirIlceID = ((District)cmbBxIlceAdlari.SelectedItem).Id;
+            }
+            return IdUlkeSehirIlceID;
+
+        }
+        void UlkeKayitAktifPassif(bool AktPass)
+        {
+            txtYeniUlkeEkle.Enabled = AktPass;
+            txtYeniUlkeKodu.Enabled = AktPass;
+            txtUlkeAciklama.Enabled = AktPass;
+            btnUlkeKayitBitir.Enabled = AktPass;
+        }
+        void SehirKayitAktifEt(bool AktfPass)
+        {
+            txtYeniSehirEkle.Enabled = AktfPass;
+            txtBxYeniSehirKodu.Enabled = AktfPass;
+            txtSehirAciklama.Enabled = AktfPass;
+            btnSehirKayitBitir.Enabled = AktfPass;
         }
 
         #endregion
@@ -131,54 +154,60 @@ namespace OgrenciServis.WinForm.Forms
         {
             Temizle(grpBxYeniAdresEkle.Controls);
 
-            _adressWriteRepository = new AdressWriteRepository(_context);
-            _countryReadRepository = new CountryReadRepository(_context);
-            Country c = (Country)cmbBxUlkeAdlari.SelectedItem;
+            VM_AdressAdd vM_AdressAdd = new VM_AdressAdd();
+            vM_AdressAdd.AdressName = txtAdresAdi.Text;
+            vM_AdressAdd.AdresDescription = "geçici açıklama";
+            vM_AdressAdd.CountriId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Ulke);
+            vM_AdressAdd.CityId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Sehir);
+            vM_AdressAdd.DistrictId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Ilce);
 
-            //TxtBxTemizle(new[] { cmbBxUlkeAdlari, cmbBxSehirAdlari, cmbBxIlceAdlari }, new[] { txtAcikAdresEKle, txtYeniUlkeEkle });
+            AdressService adressService = new AdressService();
+            await adressService.AddCityAsync(vM_AdressAdd);
+            adressService = null;
+            MessageBox.Show("Test");
+
         }
         private void btnUlkeEkle_Click(object sender, EventArgs e)
         {
-            AktifPassifEt(cmbBxUlkeAdlari, btnUlkeEkle, txtYeniUlkeEkle, txtYeniUlkeKodu, btnUlkeKayitBitir, aktif);
-            IfAktif(aktif);
-        }
-        private async void btnUlkeKayitBitir_Click(object sender, EventArgs e)
-        {
-            _countryWriteRepository = new CountryWriteRepository(_context);
-            AktifPassifEt(cmbBxUlkeAdlari, btnUlkeEkle, txtYeniUlkeEkle, txtYeniUlkeKodu, btnUlkeKayitBitir, aktif);
-            IfAktif(aktif);
-            Country ctr = new Country();
-            ctr.CountryName = txtYeniUlkeEkle.Text.Trim();
-            ctr.CountryCode = txtYeniUlkeKodu.Text.Trim();
-            await _countryWriteRepository.AddAsync(ctr);
-            await _countryWriteRepository.SaveChangesAsyncc();
-            CmbBxUlkeDoldurma(_countryReadRepository, cmbBxUlkeAdlari);
-
-
+            AktifPassifEt(); // Tüm kontrolleri passif et
+            UlkeKayitAktifPassif(true); // Ulke yeni kayıt Copnrollerini aktif et.
         }
         private void btnSehirEkle_Click(object sender, EventArgs e)
         {
-            AktifPassifEt(cmbBxSehirAdlari, btnSehirEkle, txtYeniSehirEkle, txtBxYeniSehirKodu, btnSehirKayitBitir, aktif);
-            IfAktif(aktif);
+            if (cmbBxUlkeAdlari.SelectedIndex != -1)
+            {
+                UlkId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Ulke);
+                AktifPassifEt();
+                SehirKayitAktifEt(true);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir Ülke Adı giriniz..");
+            }
+
+
         }
 
-
-        private async void btnSehirKayitBitir_Click(object sender, EventArgs e)
+        private void btnUlkeKayitBitir_Click(object sender, EventArgs e)
         {
-            AktifPassifEt(cmbBxSehirAdlari, btnSehirEkle, txtYeniSehirEkle, txtBxYeniSehirKodu, btnSehirKayitBitir, aktif);
-            IfAktif(aktif);
+            YeniUlkeEkle();
+            AktifPassifEt();
+            CmbBxUlkeDoldurma();
+        }
+
+        private void btnSehirKayitBitir_Click(object sender, EventArgs e)
+        {
+
             YeniSehirEkle();
+            CmbBxSehirDoldurma();
+
 
         }
         private void btnYeniIlceEkle_Click(object sender, EventArgs e)
         {
-            AktifPassifEt(cmbBxIlceAdlari, btnYeniIlceEkle, txtYeniIlceEkle, txtYeniılceZipKodu, btnIlceKayitBitir, aktif);
-            IfAktif(aktif);
         }
         private void btnIlceKayitBitir_Click(object sender, EventArgs e)
         {
-            AktifPassifEt(cmbBxIlceAdlari, btnYeniIlceEkle, txtYeniIlceEkle, txtYeniılceZipKodu, btnIlceKayitBitir, aktif);
-            IfAktif(aktif);
         }
         private void AdresKayitFrm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -186,13 +215,12 @@ namespace OgrenciServis.WinForm.Forms
         }
         private void AdresKayitFrm_Load(object sender, EventArgs e)
         {
-            CmbBxUlkeDoldurma(_countryReadRepository, cmbBxUlkeAdlari);
-
+            CmbBxUlkeDoldurma();
         }
 
         private void cmbBxUlkeAdlari_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CmbSehirDoldurma(_cityReadRepository, cmbBxSehirAdlari);
+
 
         }
     }

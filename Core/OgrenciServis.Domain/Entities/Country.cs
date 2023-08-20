@@ -7,6 +7,7 @@ namespace OgrenciServis.Domain.Entities
     {
         public string CountryName { get; set; }
         public string? CountryCode { get; set; }
+        public string CountryDescription { get; set; }
         public ICollection<City>? Cities { get; set; }
     }
 }

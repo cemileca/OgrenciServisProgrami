@@ -12,7 +12,7 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230818212323_mig_1")]
+    [Migration("20230820080903_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -142,6 +142,10 @@ namespace OgrenciServis.Persistence.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CountryCode")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CountryDescription")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("CountryName")

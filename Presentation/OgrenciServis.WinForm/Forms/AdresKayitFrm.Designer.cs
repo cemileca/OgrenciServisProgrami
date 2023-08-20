@@ -29,7 +29,10 @@
         private void InitializeComponent()
         {
             grpBxYeniAdresEkle = new GroupBox();
+            txtIlceAciklama = new TextBox();
+            txtSehirAciklama = new TextBox();
             txtYeniılceZipKodu = new TextBox();
+            txtUlkeAciklama = new TextBox();
             txtBxYeniSehirKodu = new TextBox();
             txtYeniUlkeKodu = new TextBox();
             txtAcikAdresEKle = new TextBox();
@@ -40,6 +43,7 @@
             btnIlceKayitBitir = new Button();
             btnSehirKayitBitir = new Button();
             btnUlkeKayitBitir = new Button();
+            btnGuncelle = new Button();
             btnEkle = new Button();
             btnIptal = new Button();
             btnYeniIlceEkle = new Button();
@@ -53,19 +57,17 @@
             cmbBxUlkeAdlari = new ComboBox();
             lblAdresAdi = new Label();
             lblUlkeAdi = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            btnGuncelle = new Button();
+            dataGridView1 = new DataGridView();
             grpBxYeniAdresEkle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // grpBxYeniAdresEkle
             // 
-            grpBxYeniAdresEkle.Controls.Add(textBox3);
-            grpBxYeniAdresEkle.Controls.Add(textBox2);
+            grpBxYeniAdresEkle.Controls.Add(txtIlceAciklama);
+            grpBxYeniAdresEkle.Controls.Add(txtSehirAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtYeniılceZipKodu);
-            grpBxYeniAdresEkle.Controls.Add(textBox1);
+            grpBxYeniAdresEkle.Controls.Add(txtUlkeAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtBxYeniSehirKodu);
             grpBxYeniAdresEkle.Controls.Add(txtYeniUlkeKodu);
             grpBxYeniAdresEkle.Controls.Add(txtAcikAdresEKle);
@@ -99,6 +101,26 @@
             grpBxYeniAdresEkle.TabStop = false;
             grpBxYeniAdresEkle.Text = "Yeni Adres Ekle";
             // 
+            // txtIlceAciklama
+            // 
+            txtIlceAciklama.Enabled = false;
+            txtIlceAciklama.Location = new Point(1032, 270);
+            txtIlceAciklama.Margin = new Padding(6);
+            txtIlceAciklama.Name = "txtIlceAciklama";
+            txtIlceAciklama.PlaceholderText = "İlçe Açıklama";
+            txtIlceAciklama.Size = new Size(564, 39);
+            txtIlceAciklama.TabIndex = 3;
+            // 
+            // txtSehirAciklama
+            // 
+            txtSehirAciklama.Enabled = false;
+            txtSehirAciklama.Location = new Point(1032, 186);
+            txtSehirAciklama.Margin = new Padding(6);
+            txtSehirAciklama.Name = "txtSehirAciklama";
+            txtSehirAciklama.PlaceholderText = "Şehir Açıklama";
+            txtSehirAciklama.Size = new Size(564, 39);
+            txtSehirAciklama.TabIndex = 3;
+            // 
             // txtYeniılceZipKodu
             // 
             txtYeniılceZipKodu.Enabled = false;
@@ -108,6 +130,16 @@
             txtYeniılceZipKodu.PlaceholderText = "İlçe Zipkodu";
             txtYeniılceZipKodu.Size = new Size(145, 39);
             txtYeniılceZipKodu.TabIndex = 3;
+            // 
+            // txtUlkeAciklama
+            // 
+            txtUlkeAciklama.Enabled = false;
+            txtUlkeAciklama.Location = new Point(1032, 99);
+            txtUlkeAciklama.Margin = new Padding(6);
+            txtUlkeAciklama.Name = "txtUlkeAciklama";
+            txtUlkeAciklama.PlaceholderText = "Ülke Açıklama";
+            txtUlkeAciklama.Size = new Size(564, 39);
+            txtUlkeAciklama.TabIndex = 3;
             // 
             // txtBxYeniSehirKodu
             // 
@@ -213,6 +245,17 @@
             btnUlkeKayitBitir.UseVisualStyleBackColor = true;
             btnUlkeKayitBitir.Click += btnUlkeKayitBitir_Click;
             // 
+            // btnGuncelle
+            // 
+            btnGuncelle.Location = new Point(948, 390);
+            btnGuncelle.Margin = new Padding(6);
+            btnGuncelle.Name = "btnGuncelle";
+            btnGuncelle.Size = new Size(354, 126);
+            btnGuncelle.TabIndex = 8;
+            btnGuncelle.Text = "Güncelle";
+            btnGuncelle.UseVisualStyleBackColor = true;
+            btnGuncelle.Click += btnEkle_Click;
+            // 
             // btnEkle
             // 
             btnEkle.Location = new Point(1326, 390);
@@ -269,6 +312,7 @@
             // 
             // cmbBxIlceAdlari
             // 
+            cmbBxIlceAdlari.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBxIlceAdlari.FormattingEnabled = true;
             cmbBxIlceAdlari.Location = new Point(113, 270);
             cmbBxIlceAdlari.Margin = new Padding(6);
@@ -278,6 +322,7 @@
             // 
             // cmbBxSehirAdlari
             // 
+            cmbBxSehirAdlari.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBxSehirAdlari.FormattingEnabled = true;
             cmbBxSehirAdlari.Location = new Point(113, 186);
             cmbBxSehirAdlari.Margin = new Padding(6);
@@ -317,6 +362,7 @@
             // 
             // cmbBxUlkeAdlari
             // 
+            cmbBxUlkeAdlari.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbBxUlkeAdlari.FormattingEnabled = true;
             cmbBxUlkeAdlari.Location = new Point(113, 100);
             cmbBxUlkeAdlari.Margin = new Padding(6);
@@ -345,52 +391,22 @@
             lblUlkeAdi.TabIndex = 0;
             lblUlkeAdi.Text = "Ülke Adı";
             // 
-            // textBox1
+            // dataGridView1
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(1032, 99);
-            textBox1.Margin = new Padding(6);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Ülke Açıklama";
-            textBox1.Size = new Size(564, 39);
-            textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(1032, 186);
-            textBox2.Margin = new Padding(6);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Şehir Açıklama";
-            textBox2.Size = new Size(564, 39);
-            textBox2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(1032, 270);
-            textBox3.Margin = new Padding(6);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "İlçe Açıklama";
-            textBox3.Size = new Size(564, 39);
-            textBox3.TabIndex = 3;
-            // 
-            // btnGuncelle
-            // 
-            btnGuncelle.Location = new Point(948, 390);
-            btnGuncelle.Margin = new Padding(6);
-            btnGuncelle.Name = "btnGuncelle";
-            btnGuncelle.Size = new Size(354, 126);
-            btnGuncelle.TabIndex = 8;
-            btnGuncelle.Text = "Güncelle";
-            btnGuncelle.UseVisualStyleBackColor = true;
-            btnGuncelle.Click += btnEkle_Click;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 623);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.RowTemplate.Height = 41;
+            dataGridView1.Size = new Size(1734, 539);
+            dataGridView1.TabIndex = 1;
             // 
             // AdresKayitFrm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1758, 1174);
+            Controls.Add(dataGridView1);
             Controls.Add(grpBxYeniAdresEkle);
             Margin = new Padding(4, 2, 4, 2);
             Name = "AdresKayitFrm";
@@ -399,6 +415,7 @@
             Load += AdresKayitFrm_Load;
             grpBxYeniAdresEkle.ResumeLayout(false);
             grpBxYeniAdresEkle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -429,9 +446,10 @@
         private Button btnYeniIlceEkle;
         private TextBox txtAdresAdi;
         private Label lblAdresAdi;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtIlceAciklama;
+        private TextBox txtSehirAciklama;
+        private TextBox txtUlkeAciklama;
         private Button btnGuncelle;
+        private DataGridView dataGridView1;
     }
 }

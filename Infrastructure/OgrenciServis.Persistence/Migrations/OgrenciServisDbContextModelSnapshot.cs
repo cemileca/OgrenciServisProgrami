@@ -141,6 +141,10 @@ namespace OgrenciServis.Persistence.Migrations
                     b.Property<string>("CountryCode")
                         .HasColumnType("text");
 
+                    b.Property<string>("CountryDescription")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("CountryName")
                         .IsRequired()
                         .HasColumnType("text");
