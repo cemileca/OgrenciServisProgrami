@@ -58,6 +58,7 @@
             lblAdresAdi = new Label();
             lblUlkeAdi = new Label();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
             grpBxYeniAdresEkle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             grpBxYeniAdresEkle.Controls.Add(txtIlceAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtSehirAciklama);
+            grpBxYeniAdresEkle.Controls.Add(btnEkle);
             grpBxYeniAdresEkle.Controls.Add(txtYeniılceZipKodu);
             grpBxYeniAdresEkle.Controls.Add(txtUlkeAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtBxYeniSehirKodu);
@@ -78,8 +80,8 @@
             grpBxYeniAdresEkle.Controls.Add(btnIlceKayitBitir);
             grpBxYeniAdresEkle.Controls.Add(btnSehirKayitBitir);
             grpBxYeniAdresEkle.Controls.Add(btnUlkeKayitBitir);
+            grpBxYeniAdresEkle.Controls.Add(button1);
             grpBxYeniAdresEkle.Controls.Add(btnGuncelle);
-            grpBxYeniAdresEkle.Controls.Add(btnEkle);
             grpBxYeniAdresEkle.Controls.Add(btnIptal);
             grpBxYeniAdresEkle.Controls.Add(btnYeniIlceEkle);
             grpBxYeniAdresEkle.Controls.Add(btnSehirEkle);
@@ -247,10 +249,10 @@
             // 
             // btnGuncelle
             // 
-            btnGuncelle.Location = new Point(948, 390);
+            btnGuncelle.Location = new Point(796, 390);
             btnGuncelle.Margin = new Padding(6);
             btnGuncelle.Name = "btnGuncelle";
-            btnGuncelle.Size = new Size(354, 126);
+            btnGuncelle.Size = new Size(202, 126);
             btnGuncelle.TabIndex = 8;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.UseVisualStyleBackColor = true;
@@ -258,10 +260,10 @@
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(1326, 390);
+            btnEkle.Location = new Point(1010, 390);
             btnEkle.Margin = new Padding(6);
             btnEkle.Name = "btnEkle";
-            btnEkle.Size = new Size(354, 126);
+            btnEkle.Size = new Size(456, 126);
             btnEkle.TabIndex = 8;
             btnEkle.Text = "Ekle";
             btnEkle.UseVisualStyleBackColor = true;
@@ -272,7 +274,7 @@
             btnIptal.Location = new Point(576, 390);
             btnIptal.Margin = new Padding(6);
             btnIptal.Name = "btnIptal";
-            btnIptal.Size = new Size(344, 126);
+            btnIptal.Size = new Size(206, 126);
             btnIptal.TabIndex = 9;
             btnIptal.Text = "İptal";
             btnIptal.UseVisualStyleBackColor = true;
@@ -329,6 +331,7 @@
             cmbBxSehirAdlari.Name = "cmbBxSehirAdlari";
             cmbBxSehirAdlari.Size = new Size(388, 40);
             cmbBxSehirAdlari.TabIndex = 3;
+            cmbBxSehirAdlari.SelectedIndexChanged += cmbBxSehirAdlari_SelectedIndexChanged;
             // 
             // lblAcikAdres
             // 
@@ -394,12 +397,23 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 623);
+            dataGridView1.Location = new Point(12, 609);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.RowTemplate.Height = 41;
-            dataGridView1.Size = new Size(1734, 539);
+            dataGridView1.Size = new Size(1734, 553);
             dataGridView1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(1478, 390);
+            button1.Margin = new Padding(6);
+            button1.Name = "button1";
+            button1.Size = new Size(202, 126);
+            button1.TabIndex = 8;
+            button1.Text = "Güncelle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnEkle_Click;
             // 
             // AdresKayitFrm
             // 
@@ -451,5 +465,6 @@
         private TextBox txtUlkeAciklama;
         private Button btnGuncelle;
         private DataGridView dataGridView1;
+        private Button button1;
     }
 }
