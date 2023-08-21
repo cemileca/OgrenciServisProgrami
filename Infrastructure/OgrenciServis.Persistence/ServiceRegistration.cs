@@ -19,6 +19,7 @@ namespace OgrenciServis.Persistence
             service.AddScoped<ICountryService, CountryService>();
             service.AddScoped<ICityService, CityService>();
             service.AddScoped<IAdressService, AdressService>();
+            service.AddScoped<IDistrictService, DistrictService>();
         }
     }
 }

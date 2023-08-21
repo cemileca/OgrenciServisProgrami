@@ -12,7 +12,7 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230820080903_mig_1")]
+    [Migration("20230821144907_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />

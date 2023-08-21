@@ -9,17 +9,17 @@ namespace OgrenciServis.Persistence.Services
 {
     public class AdressService : IAdressService
     {
-        readonly private OgrenciServisDbContext _context;
+        #region TANIMLAMALAR
         readonly private AdressWriteRepository _adressWriteRepository;
         readonly private AdressReadRepository _adressReadRepository;
         readonly private CountryReadRepository _countryReadRepository;
         readonly private CityReadRepository _cityReadRepository;
         readonly private DistrictReadRepository _districtReadRepository;
+        #endregion
         public AdressService()
         {
             var option = new DbContextOptionsBuilder<OgrenciServisDbContext>().UseNpgsql(Configurations.ConnectionString).Options;
             var ctx = new OgrenciServisDbContext(option);
-            _context = ctx;
             _adressReadRepository = new AdressReadRepository(ctx);
             _adressWriteRepository = new AdressWriteRepository(ctx);
             _cityReadRepository = new CityReadRepository(ctx);
@@ -44,9 +44,22 @@ namespace OgrenciServis.Persistence.Services
             await _adressWriteRepository.SaveChangesAsyncc();
         }
 
-        public Task RemoveCityAsync(int Id)
+        public IQueryable<Adress> GetAllAdresses()
         {
-            throw new NotImplementedException();
+            var query = _adressReadRepository.GetAll();
+            return query;
+        }
+
+        public IQueryable<Adress> GetAllAdressesById(string adressName)
+        {
+            var query = _adressReadRepository.GetAll().Where(a => a.AdressName == adressName);
+            return query;
+        }
+
+        public async Task RemoveCityAsync(int Id)
+        {
+           await _adressWriteRepository.RemoveByIdAsync(Id);
+            await _adressWriteRepository.SaveChangesAsyncc();
         }
     }
 }
