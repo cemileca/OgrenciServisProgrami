@@ -7,7 +7,7 @@ namespace OgrenciServis.Business.ServicesAbstract
     {
         Task AddDsitrictAsync(VM_DistrictAdd vM_DistrictAdd);
         IQueryable<District> GetAllDistrict();
-        IQueryable<District> GetAllDistrictById(int id);
+        IQueryable<District> GetAllDistrictByCity(int CityId);
         Task RemoveDistrictAsync(int Id);
     }
 }

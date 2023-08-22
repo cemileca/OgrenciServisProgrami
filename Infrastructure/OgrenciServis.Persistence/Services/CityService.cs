@@ -44,6 +44,9 @@ namespace OgrenciServis.Persistence.Services
             return query;
         }
 
+        public async Task<City> GetCityById(int CityId)
+            => await _cityReadRepository.GetByIdAsync(CityId);
+
         public Task RemoveCityAsync(int Id)
         {
             throw new NotImplementedException();

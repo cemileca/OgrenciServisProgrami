@@ -134,6 +134,7 @@ namespace OgrenciServis.Persistence.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     DistrictName = table.Column<string>(type: "text", nullable: false),
                     DistrictDescription = table.Column<string>(type: "text", nullable: true),
+                    DistrictZipCode = table.Column<string>(type: "text", nullable: true),
                     CityId = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),

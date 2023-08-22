@@ -12,7 +12,7 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230821144907_mig_1")]
+    [Migration("20230821205117_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -194,6 +194,9 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.Property<string>("DistrictName")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DistrictZipCode")
                         .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedDate")

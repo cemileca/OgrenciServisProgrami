@@ -193,6 +193,9 @@ namespace OgrenciServis.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("DistrictZipCode")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
