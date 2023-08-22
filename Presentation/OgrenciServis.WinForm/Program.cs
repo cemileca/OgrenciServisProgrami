@@ -19,7 +19,7 @@ namespace OgrenciServis.WinForm
             hosbuilder.ConfigureServices(services => services.AddPersistenceService());
             hosbuilder.Build().RunAsync();
 
-            Application.Run(new AdresKayitFrm());
+            Application.Run(new AnaSayfaFrm());
         }
     }
 }

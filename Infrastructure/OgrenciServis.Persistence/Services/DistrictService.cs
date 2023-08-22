@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Business.ServicesAbstract;
-using OgrenciServis.Domain;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Domain.ViewModel;
 using OgrenciServis.Persistence.Contexts;
@@ -37,7 +36,7 @@ namespace OgrenciServis.Persistence.Services
             dsc.City = city;
             await _districtWriteRepository.AddAsync(dsc);
             await _districtWriteRepository.SaveChangesAsyncc();
-            
+
         }
 
         public IQueryable<District> GetAllDistrict()

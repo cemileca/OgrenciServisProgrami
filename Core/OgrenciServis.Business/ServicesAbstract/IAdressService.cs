@@ -9,6 +9,6 @@ namespace OgrenciServis.Business.ServicesAbstract
         Task AddCityAsync(VM_AdressAdd vM_Adress);
         IQueryable<Adress> GetAllAdresses();
         IQueryable<Adress> GetAllAdressesById(string adressName);
-        Task RemoveCityAsync(int Id);
+        Task RemoveAdressAsync(int Id);
     }
 }

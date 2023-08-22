@@ -4,8 +4,6 @@ using OgrenciServis.Domain.Entities;
 using OgrenciServis.Domain.ViewModel;
 using OgrenciServis.Persistence.Contexts;
 using OgrenciServis.Persistence.Repositories;
-using System.Collections;
-using System.ComponentModel;
 
 namespace OgrenciServis.Persistence.Services
 {
@@ -42,6 +40,6 @@ namespace OgrenciServis.Persistence.Services
             throw new NotImplementedException();
         }
 
-        
+
     }
 }

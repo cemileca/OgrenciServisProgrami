@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Business.ServicesAbstract;
 using OgrenciServis.Domain;
 using OgrenciServis.Domain.Entities;
@@ -10,11 +11,11 @@ namespace OgrenciServis.Persistence.Services
     public class AdressService : IAdressService
     {
         #region TANIMLAMALAR
-        readonly private AdressWriteRepository _adressWriteRepository;
-        readonly private AdressReadRepository _adressReadRepository;
-        readonly private CountryReadRepository _countryReadRepository;
-        readonly private CityReadRepository _cityReadRepository;
-        readonly private DistrictReadRepository _districtReadRepository;
+        readonly private IAdressWriteRepository _adressWriteRepository;
+        readonly private IAdressReadRepository _adressReadRepository;
+        readonly private ICountryReadRepository _countryReadRepository;
+        readonly private ICityReadRepository _cityReadRepository;
+        readonly private IDistrcitReadRepository _districtReadRepository;
         #endregion
         public AdressService()
         {
@@ -56,7 +57,7 @@ namespace OgrenciServis.Persistence.Services
             return query;
         }
 
-        public async Task RemoveCityAsync(int Id)
+        public async Task RemoveAdressAsync(int Id)
         {
            await _adressWriteRepository.RemoveByIdAsync(Id);
             await _adressWriteRepository.SaveChangesAsyncc();

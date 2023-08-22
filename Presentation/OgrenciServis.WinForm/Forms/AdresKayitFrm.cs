@@ -115,7 +115,7 @@ namespace OgrenciServis.WinForm.Forms
             await _countryService.AddCountryAsync(vM_CountryAdd);
             vM_CountryAdd = null;
         }
-        private async void YeniIlceEKle()
+        async void YeniIlceEKle()
         {
             VM_DistrictAdd vM_DistrictAdd = new VM_DistrictAdd();
             vM_DistrictAdd.DistrictName = txtYeniIlceEkle.Text.Trim();
@@ -158,7 +158,6 @@ namespace OgrenciServis.WinForm.Forms
             txtUlkeAciklama.Enabled = AktPass;
             btnUlkeKayitBitir.Enabled = AktPass;
         }
-
         void SehirKayitAktifEt(bool AktfPass)
         {
             txtYeniSehirEkle.Enabled = AktfPass;
@@ -221,7 +220,6 @@ namespace OgrenciServis.WinForm.Forms
             txtUlkeAciklama.TabIndex = 35;
             btnUlkeKayitBitir.TabIndex = 36;
         }
-
         private void btnSehirEkle_Click(object sender, EventArgs e)
         {
             if (cmbBxUlkeAdlari.SelectedIndex != -1)
@@ -237,6 +235,24 @@ namespace OgrenciServis.WinForm.Forms
             txtBxYeniSehirKodu.TabIndex = 34;
             txtSehirAciklama.TabIndex = 35;
             btnSehirKayitBitir.TabIndex = 36;
+        }
+        private void btnYeniIlceEkle_Click(object sender, EventArgs e)
+        {
+            if (cmbBxSehirAdlari.SelectedIndex != -1)
+            {
+                AktifPassifEt();
+                IlceKayitAktifEt(true);
+                CmbBxlariAktifEt();
+                txtYeniIlceEkle.TabIndex = 33;
+                txtYeniIlceZipKodu.TabIndex = 34;
+                txtYeniIlceAciklama.TabIndex = 35;
+                btnIlceKayitBitir.TabIndex = 36;
+            }
+            else
+            {
+                MessageBox.Show("Lütfen bir Şehir Seçiniz..");
+            }
+
         }
 
 
@@ -270,27 +286,8 @@ namespace OgrenciServis.WinForm.Forms
 
 
         }
-        private void btnYeniIlceEkle_Click(object sender, EventArgs e)
-        {
-            if (cmbBxSehirAdlari.SelectedIndex != -1)
-            {
-                AktifPassifEt();
-                IlceKayitAktifEt(true);
-                CmbBxlariAktifEt();
-                txtYeniIlceEkle.TabIndex = 33;
-                txtYeniIlceZipKodu.TabIndex = 34;
-                txtYeniIlceAciklama.TabIndex = 35;
-                btnIlceKayitBitir.TabIndex = 36;
-            }
-            else
-            {
-                MessageBox.Show("Lütfen bir Şehir Seçiniz..");
-            }
-
-        }
         private void btnIlceKayitBitir_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(((City)cmbBxSehirAdlari.SelectedItem).CityName);
             if (cmbBxSehirAdlari.SelectedIndex != -1)
             {
                 if (txtYeniIlceEkle.Text != string.Empty && txtYeniIlceEkle.Text.Length >= 3 && txtYeniIlceZipKodu.Text != string.Empty && txtYeniIlceZipKodu.Text.Length >= 2)

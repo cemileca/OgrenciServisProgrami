@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OgrenciServis.Persistence",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OgrenciServis.Business", "Core\OgrenciServis.Business\OgrenciServis.Business.csproj", "{0B5FC2BE-60DB-49C8-A774-9159B5C5DD46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OgrenciServis.Domain", "Core\OgrenciServis.Domain\OgrenciServis.Domain.csproj", "{421F9251-08D2-475A-B57F-D0F996F2CCC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OgrenciServis.Domain", "Core\OgrenciServis.Domain\OgrenciServis.Domain.csproj", "{421F9251-08D2-475A-B57F-D0F996F2CCC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OgrenciServis.WinForm", "Presentation\OgrenciServis.WinForm\OgrenciServis.WinForm.csproj", "{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OgrenciServis.WinForm", "Presentation\OgrenciServis.WinForm\OgrenciServis.WinForm.csproj", "{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OgrenciServis.WPForm", "Presentation\OgrenciServis.WPForm\OgrenciServis.WPForm.csproj", "{E1C512DA-5284-4A89-B1AF-2BBF0430972E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C512DA-5284-4A89-B1AF-2BBF0430972E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C512DA-5284-4A89-B1AF-2BBF0430972E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C512DA-5284-4A89-B1AF-2BBF0430972E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C512DA-5284-4A89-B1AF-2BBF0430972E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{0B5FC2BE-60DB-49C8-A774-9159B5C5DD46} = {CCB287DF-04F3-455B-92AD-C148CB72159B}
 		{421F9251-08D2-475A-B57F-D0F996F2CCC0} = {CCB287DF-04F3-455B-92AD-C148CB72159B}
 		{A2C88380-ACB2-4CFD-8CAE-9CFD3119C8FF} = {61A1B253-136C-4B19-934D-A95805259C4E}
+		{E1C512DA-5284-4A89-B1AF-2BBF0430972E} = {61A1B253-136C-4B19-934D-A95805259C4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84771CB1-18E5-4478-9D57-983C62AA0A3D}
