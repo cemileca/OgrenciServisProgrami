@@ -32,7 +32,7 @@
             txtYeniIlceAciklama = new TextBox();
             txtSehirAciklama = new TextBox();
             btnEkle = new Button();
-            txtYeniılceZipKodu = new TextBox();
+            txtYeniIlceZipKodu = new TextBox();
             txtUlkeAciklama = new TextBox();
             txtBxYeniSehirKodu = new TextBox();
             txtYeniUlkeKodu = new TextBox();
@@ -68,7 +68,7 @@
             grpBxYeniAdresEkle.Controls.Add(txtYeniIlceAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtSehirAciklama);
             grpBxYeniAdresEkle.Controls.Add(btnEkle);
-            grpBxYeniAdresEkle.Controls.Add(txtYeniılceZipKodu);
+            grpBxYeniAdresEkle.Controls.Add(txtYeniIlceZipKodu);
             grpBxYeniAdresEkle.Controls.Add(txtUlkeAciklama);
             grpBxYeniAdresEkle.Controls.Add(txtBxYeniSehirKodu);
             grpBxYeniAdresEkle.Controls.Add(txtYeniUlkeKodu);
@@ -134,15 +134,15 @@
             btnEkle.UseVisualStyleBackColor = true;
             btnEkle.Click += btnEkle_Click;
             // 
-            // txtYeniılceZipKodu
+            // txtYeniIlceZipKodu
             // 
-            txtYeniılceZipKodu.Enabled = false;
-            txtYeniılceZipKodu.Location = new Point(877, 271);
-            txtYeniılceZipKodu.Margin = new Padding(6);
-            txtYeniılceZipKodu.Name = "txtYeniılceZipKodu";
-            txtYeniılceZipKodu.PlaceholderText = "İlçe Zipkodu";
-            txtYeniılceZipKodu.Size = new Size(145, 39);
-            txtYeniılceZipKodu.TabIndex = 3;
+            txtYeniIlceZipKodu.Enabled = false;
+            txtYeniIlceZipKodu.Location = new Point(877, 271);
+            txtYeniIlceZipKodu.Margin = new Padding(6);
+            txtYeniIlceZipKodu.Name = "txtYeniIlceZipKodu";
+            txtYeniIlceZipKodu.PlaceholderText = "İlçe Zipkodu";
+            txtYeniIlceZipKodu.Size = new Size(145, 39);
+            txtYeniIlceZipKodu.TabIndex = 3;
             // 
             // txtUlkeAciklama
             // 
@@ -448,7 +448,7 @@
         private Button btnSehirEkle;
         private ComboBox cmbBxSehirAdlari;
         private Label lblSehirAdi;
-        private TextBox txtYeniılceZipKodu;
+        private TextBox txtYeniIlceZipKodu;
         private TextBox txtYeniIlceEkle;
         private Button btnIlceKayitBitir;
         private Button btnIptal;

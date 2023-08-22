@@ -45,13 +45,13 @@ namespace OgrenciServis.Persistence.Services
             throw new NotImplementedException();
         }
 
-        public IQueryable<District> GetAllDistrictByCity(City city)
+        public IQueryable<District> GetAllDistrictByCity(int cityId)
         {
-            var query = _districtReadRepository.GetAll().Where(d => d.City == city);
+            var query = _districtReadRepository.GetAll().Where(d => d.City.Id == cityId);
             return query;
         }
 
-        public IQueryable<District> GetAllDistrictByCity(int CityId)
+        public IQueryable<District> GetDistrictByCity(int CityId)
         {
             throw new NotImplementedException();
         }

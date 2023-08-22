@@ -58,8 +58,8 @@ namespace OgrenciServis.WinForm.Forms
         void CmbBxIlceDoldurma()
         {
             DistrictService ds = new DistrictService();
-            City cty = new CityService().GetCityById(UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Sehir)).Result;
-            var query =ds.GetAllDistrictByCity(cty);
+
+            var query = ds.GetAllDistrictByCity(UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Sehir));
             cmbBxIlceAdlari.DataSource = query.ToList();
             cmbBxIlceAdlari.DisplayMember = "DistrictName";
             cmbBxIlceAdlari.SelectedIndex = -1;
@@ -120,12 +120,13 @@ namespace OgrenciServis.WinForm.Forms
             VM_DistrictAdd vM_DistrictAdd = new VM_DistrictAdd();
             vM_DistrictAdd.DistrictName = txtYeniIlceEkle.Text.Trim();
             vM_DistrictAdd.DistrictDescription = txtYeniIlceAciklama.Text.Trim();
-            vM_DistrictAdd.DistrictZipCode=txtYeniılceZipKodu.Text.Trim();
+            vM_DistrictAdd.DistrictZipCode = txtYeniIlceZipKodu.Text.Trim();
             vM_DistrictAdd.CitiId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Sehir);
-            
+
 
             DistrictService ds = new DistrictService();
             await ds.AddDsitrictAsync(vM_DistrictAdd);
+            CmbBxIlceDoldurma();
 
             vM_DistrictAdd = null;
         }
@@ -171,7 +172,7 @@ namespace OgrenciServis.WinForm.Forms
         {
             txtYeniIlceEkle.Enabled = AktfPass;
             txtYeniIlceEkle.Focus();
-            txtYeniılceZipKodu.Enabled = AktfPass;
+            txtYeniIlceZipKodu.Enabled = AktfPass;
             txtYeniIlceAciklama.Enabled = AktfPass;
             btnIlceKayitBitir.Enabled = AktfPass;
             cmbBxSehirAdlari.Enabled = AktfPass;
@@ -215,7 +216,12 @@ namespace OgrenciServis.WinForm.Forms
             }
             AktifPassifEt(); // Tüm kontrolleri passif et
             UlkeKayitAktifPassif(true); // Ulke yeni kayıt Copnrollerini aktif et.
+            txtYeniUlkeEkle.TabIndex = 33;
+            txtYeniUlkeKodu.TabIndex = 34;
+            txtUlkeAciklama.TabIndex = 35;
+            btnUlkeKayitBitir.TabIndex = 36;
         }
+
         private void btnSehirEkle_Click(object sender, EventArgs e)
         {
             if (cmbBxUlkeAdlari.SelectedIndex != -1)
@@ -227,8 +233,10 @@ namespace OgrenciServis.WinForm.Forms
             {
                 MessageBox.Show("Lütfen bir Ülke Adı giriniz..");
             }
-
-
+            txtYeniSehirEkle.TabIndex = 33;
+            txtBxYeniSehirKodu.TabIndex = 34;
+            txtSehirAciklama.TabIndex = 35;
+            btnSehirKayitBitir.TabIndex = 36;
         }
 
 
@@ -241,19 +249,24 @@ namespace OgrenciServis.WinForm.Forms
             AktifPassifEt();
             CmbBxUlkeDoldurma();
             CmbBxlariAktifEt();
-
+            cmbBxUlkeAdlari.Focus();
         }
         private void btnSehirKayitBitir_Click(object sender, EventArgs e)
         {
             if (cmbBxUlkeAdlari.SelectedIndex != -1)
             {
-                YeniSehirEkle();
+                if (txtYeniSehirEkle.Text != string.Empty && txtYeniSehirEkle.Text.Length >= 3 && txtBxYeniSehirKodu.Text != string.Empty && txtBxYeniSehirKodu.Text.Length >= 2)
+                {
+                    YeniSehirEkle();
+
+                }
 
                 AktifPassifEt();
                 CmbBxlariAktifEt();
             }
-          
 
+
+            cmbBxSehirAdlari.Focus();
 
 
         }
@@ -264,6 +277,10 @@ namespace OgrenciServis.WinForm.Forms
                 AktifPassifEt();
                 IlceKayitAktifEt(true);
                 CmbBxlariAktifEt();
+                txtYeniIlceEkle.TabIndex = 33;
+                txtYeniIlceZipKodu.TabIndex = 34;
+                txtYeniIlceAciklama.TabIndex = 35;
+                btnIlceKayitBitir.TabIndex = 36;
             }
             else
             {
@@ -276,17 +293,23 @@ namespace OgrenciServis.WinForm.Forms
             MessageBox.Show(((City)cmbBxSehirAdlari.SelectedItem).CityName);
             if (cmbBxSehirAdlari.SelectedIndex != -1)
             {
-                YeniIlceEKle();
+                if (txtYeniIlceEkle.Text != string.Empty && txtYeniIlceEkle.Text.Length >= 3 && txtYeniIlceZipKodu.Text != string.Empty && txtYeniIlceZipKodu.Text.Length >= 2)
+                {
+                    YeniIlceEKle();
+
+                }
+
                 AktifPassifEt();
                 CmbBxlariAktifEt();
+                cmbBxIlceAdlari.Focus();
             }
             else
             {
                 MessageBox.Show("Test");
             }
-           
 
-          
+
+
         }
 
 
@@ -316,7 +339,7 @@ namespace OgrenciServis.WinForm.Forms
         {
             if (cmbBxSehirAdlari.SelectedIndex != -1)
             {
-                //CmbBxIlceDoldurma();
+                CmbBxIlceDoldurma();
             }
             else
             {
