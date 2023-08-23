@@ -30,73 +30,73 @@
         {
             panel1 = new Panel();
             tbCrlOgrenciKayit = new TabControl();
-            tabPage1 = new TabPage();
+            tpKisiselBilgiler = new TabPage();
+            panel3 = new Panel();
+            groupBox3 = new GroupBox();
+            txtBabaTlf2 = new TextBox();
+            lblBabaTlf2 = new Label();
+            txtBabaTlf1 = new TextBox();
+            lblBabaTlf1 = new Label();
+            txtBabaMeslegi = new TextBox();
+            lblBabaMeslegi = new Label();
+            txtBabaAdiSoyadi = new TextBox();
+            lblBabaAdiSoyadi = new Label();
+            groupBox2 = new GroupBox();
+            txtAnneTlf2 = new TextBox();
+            lblAnneTlf2 = new Label();
+            txtAnneTlf1 = new TextBox();
+            lblAnneTlf1 = new Label();
+            txtAnneMeslegi = new TextBox();
+            lblAnneMeslegi = new Label();
+            txtAnneAdiSoyadi = new TextBox();
+            lblAnneAdiSoyadi = new Label();
+            groupBox1 = new GroupBox();
+            cmbBxIlce = new ComboBox();
+            lblIlce = new Label();
+            cmbBxSehir = new ComboBox();
+            lblSehir = new Label();
+            cmbBxUlke = new ComboBox();
+            lblUlke = new Label();
+            txtAcikAdres = new TextBox();
+            lblacikAdres = new Label();
+            mbBxServisDonemi = new ComboBox();
+            cmbBxBolumsinif = new ComboBox();
+            cmbBxOkulTuru = new ComboBox();
+            cmbBxServisAraci = new ComboBox();
+            txtOgrenciOkulu = new ComboBox();
             grbBxOgrenciResmi = new GroupBox();
-            dateTimePicker1 = new DateTimePicker();
-            button1 = new Button();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            label1 = new Label();
+            txtNot = new TextBox();
+            lblNot = new Label();
+            picOgrenciResmi = new PictureBox();
+            dtpKayıtTarihi = new DateTimePicker();
+            btnKimlikNo = new Button();
+            txtOgrenciSoyadi = new TextBox();
+            txtOgrenciAdi = new TextBox();
+            txtKimlikNo = new TextBox();
+            lblBolumSinif = new Label();
+            lblServisDonemi = new Label();
+            lblOkulTuru = new Label();
+            lblOgrenciSoyadı = new Label();
+            lblServisAraci = new Label();
+            lblOgrenciOkulu = new Label();
+            lblOgrenciAdi = new Label();
+            lblKayıtTarihi = new Label();
+            lblKimlikNo = new Label();
             tabPage2 = new TabPage();
             panel2 = new Panel();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            cmbBxAktif = new ComboBox();
+            txtOgrenciKodu = new TextBox();
             lblAktif = new Label();
             lblKodu = new Label();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            label4 = new Label();
-            textBox4 = new TextBox();
-            label5 = new Label();
-            comboBox2 = new ComboBox();
-            label6 = new Label();
-            comboBox3 = new ComboBox();
-            label7 = new Label();
-            comboBox4 = new ComboBox();
-            label8 = new Label();
-            comboBox5 = new ComboBox();
-            label9 = new Label();
-            comboBox6 = new ComboBox();
-            groupBox1 = new GroupBox();
-            label10 = new Label();
-            comboBox7 = new ComboBox();
-            label11 = new Label();
-            comboBox8 = new ComboBox();
-            label12 = new Label();
-            comboBox9 = new ComboBox();
-            label13 = new Label();
-            textBox5 = new TextBox();
-            groupBox2 = new GroupBox();
-            picOgrenciResmi = new PictureBox();
-            label14 = new Label();
-            textBox6 = new TextBox();
-            panel3 = new Panel();
-            label15 = new Label();
-            textBox7 = new TextBox();
-            label16 = new Label();
-            textBox8 = new TextBox();
-            label17 = new Label();
-            textBox9 = new TextBox();
-            label18 = new Label();
-            textBox10 = new TextBox();
-            groupBox3 = new GroupBox();
-            textBox11 = new TextBox();
-            label19 = new Label();
-            textBox12 = new TextBox();
-            label20 = new Label();
-            textBox13 = new TextBox();
-            label21 = new Label();
-            textBox14 = new TextBox();
-            label22 = new Label();
             panel1.SuspendLayout();
             tbCrlOgrenciKayit.SuspendLayout();
-            tabPage1.SuspendLayout();
-            grbBxOgrenciResmi.SuspendLayout();
-            panel2.SuspendLayout();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picOgrenciResmi).BeginInit();
+            tpKisiselBilgiler.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            grbBxOgrenciResmi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picOgrenciResmi).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -104,130 +104,596 @@
             panel1.Controls.Add(tbCrlOgrenciKayit);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(6, 6, 6, 6);
+            panel1.Margin = new Padding(6);
             panel1.Name = "panel1";
             panel1.Size = new Size(1777, 1274);
             panel1.TabIndex = 0;
             // 
             // tbCrlOgrenciKayit
             // 
-            tbCrlOgrenciKayit.Controls.Add(tabPage1);
+            tbCrlOgrenciKayit.Controls.Add(tpKisiselBilgiler);
             tbCrlOgrenciKayit.Controls.Add(tabPage2);
             tbCrlOgrenciKayit.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             tbCrlOgrenciKayit.Location = new Point(6, 126);
-            tbCrlOgrenciKayit.Margin = new Padding(6, 6, 6, 6);
+            tbCrlOgrenciKayit.Margin = new Padding(6);
             tbCrlOgrenciKayit.Name = "tbCrlOgrenciKayit";
             tbCrlOgrenciKayit.SelectedIndex = 0;
             tbCrlOgrenciKayit.Size = new Size(1766, 1141);
             tbCrlOgrenciKayit.TabIndex = 3;
             // 
-            // tabPage1
+            // tpKisiselBilgiler
             // 
-            tabPage1.BackColor = Color.LightCyan;
-            tabPage1.Controls.Add(panel3);
-            tabPage1.Controls.Add(groupBox3);
-            tabPage1.Controls.Add(groupBox2);
-            tabPage1.Controls.Add(groupBox1);
-            tabPage1.Controls.Add(comboBox4);
-            tabPage1.Controls.Add(comboBox6);
-            tabPage1.Controls.Add(comboBox5);
-            tabPage1.Controls.Add(comboBox3);
-            tabPage1.Controls.Add(comboBox2);
-            tabPage1.Controls.Add(grbBxOgrenciResmi);
-            tabPage1.Controls.Add(dateTimePicker1);
-            tabPage1.Controls.Add(button1);
-            tabPage1.Controls.Add(textBox4);
-            tabPage1.Controls.Add(textBox3);
-            tabPage1.Controls.Add(textBox2);
-            tabPage1.Controls.Add(label9);
-            tabPage1.Controls.Add(label7);
-            tabPage1.Controls.Add(label8);
-            tabPage1.Controls.Add(label4);
-            tabPage1.Controls.Add(label6);
-            tabPage1.Controls.Add(label5);
-            tabPage1.Controls.Add(label3);
-            tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(label1);
-            tabPage1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tabPage1.Location = new Point(8, 46);
-            tabPage1.Margin = new Padding(6, 6, 6, 6);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(6, 6, 6, 6);
-            tabPage1.Size = new Size(1750, 1087);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Kişisel Bilgiler";
+            tpKisiselBilgiler.BackColor = Color.LightCyan;
+            tpKisiselBilgiler.Controls.Add(panel3);
+            tpKisiselBilgiler.Controls.Add(groupBox3);
+            tpKisiselBilgiler.Controls.Add(groupBox2);
+            tpKisiselBilgiler.Controls.Add(groupBox1);
+            tpKisiselBilgiler.Controls.Add(mbBxServisDonemi);
+            tpKisiselBilgiler.Controls.Add(cmbBxBolumsinif);
+            tpKisiselBilgiler.Controls.Add(cmbBxOkulTuru);
+            tpKisiselBilgiler.Controls.Add(cmbBxServisAraci);
+            tpKisiselBilgiler.Controls.Add(txtOgrenciOkulu);
+            tpKisiselBilgiler.Controls.Add(grbBxOgrenciResmi);
+            tpKisiselBilgiler.Controls.Add(dtpKayıtTarihi);
+            tpKisiselBilgiler.Controls.Add(btnKimlikNo);
+            tpKisiselBilgiler.Controls.Add(txtOgrenciSoyadi);
+            tpKisiselBilgiler.Controls.Add(txtOgrenciAdi);
+            tpKisiselBilgiler.Controls.Add(txtKimlikNo);
+            tpKisiselBilgiler.Controls.Add(lblBolumSinif);
+            tpKisiselBilgiler.Controls.Add(lblServisDonemi);
+            tpKisiselBilgiler.Controls.Add(lblOkulTuru);
+            tpKisiselBilgiler.Controls.Add(lblOgrenciSoyadı);
+            tpKisiselBilgiler.Controls.Add(lblServisAraci);
+            tpKisiselBilgiler.Controls.Add(lblOgrenciOkulu);
+            tpKisiselBilgiler.Controls.Add(lblOgrenciAdi);
+            tpKisiselBilgiler.Controls.Add(lblKayıtTarihi);
+            tpKisiselBilgiler.Controls.Add(lblKimlikNo);
+            tpKisiselBilgiler.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            tpKisiselBilgiler.Location = new Point(8, 46);
+            tpKisiselBilgiler.Margin = new Padding(6);
+            tpKisiselBilgiler.Name = "tpKisiselBilgiler";
+            tpKisiselBilgiler.Padding = new Padding(6);
+            tpKisiselBilgiler.Size = new Size(1750, 1087);
+            tpKisiselBilgiler.TabIndex = 0;
+            tpKisiselBilgiler.Text = "Kişisel Bilgiler";
+            // 
+            // panel3
+            // 
+            panel3.Location = new Point(9, 1016);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1726, 62);
+            panel3.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txtBabaTlf2);
+            groupBox3.Controls.Add(lblBabaTlf2);
+            groupBox3.Controls.Add(txtBabaTlf1);
+            groupBox3.Controls.Add(lblBabaTlf1);
+            groupBox3.Controls.Add(txtBabaMeslegi);
+            groupBox3.Controls.Add(lblBabaMeslegi);
+            groupBox3.Controls.Add(txtBabaAdiSoyadi);
+            groupBox3.Controls.Add(lblBabaAdiSoyadi);
+            groupBox3.Location = new Point(886, 697);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(855, 303);
+            groupBox3.TabIndex = 5;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "BABA BİLGİLERİ";
+            // 
+            // txtBabaTlf2
+            // 
+            txtBabaTlf2.Location = new Point(566, 243);
+            txtBabaTlf2.Margin = new Padding(6);
+            txtBabaTlf2.Name = "txtBabaTlf2";
+            txtBabaTlf2.Size = new Size(270, 40);
+            txtBabaTlf2.TabIndex = 4;
+            // 
+            // lblBabaTlf2
+            // 
+            lblBabaTlf2.AutoSize = true;
+            lblBabaTlf2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBabaTlf2.Location = new Point(440, 247);
+            lblBabaTlf2.Margin = new Padding(6, 0, 6, 0);
+            lblBabaTlf2.Name = "lblBabaTlf2";
+            lblBabaTlf2.Size = new Size(112, 32);
+            lblBabaTlf2.TabIndex = 3;
+            lblBabaTlf2.Text = "Telefon2";
+            // 
+            // txtBabaTlf1
+            // 
+            txtBabaTlf1.Location = new Point(156, 243);
+            txtBabaTlf1.Margin = new Padding(6);
+            txtBabaTlf1.Name = "txtBabaTlf1";
+            txtBabaTlf1.Size = new Size(270, 40);
+            txtBabaTlf1.TabIndex = 4;
+            // 
+            // lblBabaTlf1
+            // 
+            lblBabaTlf1.AutoSize = true;
+            lblBabaTlf1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBabaTlf1.Location = new Point(14, 247);
+            lblBabaTlf1.Margin = new Padding(6, 0, 6, 0);
+            lblBabaTlf1.Name = "lblBabaTlf1";
+            lblBabaTlf1.Size = new Size(119, 32);
+            lblBabaTlf1.TabIndex = 3;
+            lblBabaTlf1.Text = "Telefon 1";
+            // 
+            // txtBabaMeslegi
+            // 
+            txtBabaMeslegi.Location = new Point(156, 135);
+            txtBabaMeslegi.Margin = new Padding(6);
+            txtBabaMeslegi.Name = "txtBabaMeslegi";
+            txtBabaMeslegi.Size = new Size(680, 40);
+            txtBabaMeslegi.TabIndex = 4;
+            // 
+            // lblBabaMeslegi
+            // 
+            lblBabaMeslegi.AutoSize = true;
+            lblBabaMeslegi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBabaMeslegi.Location = new Point(14, 139);
+            lblBabaMeslegi.Margin = new Padding(6, 0, 6, 0);
+            lblBabaMeslegi.Name = "lblBabaMeslegi";
+            lblBabaMeslegi.Size = new Size(103, 32);
+            lblBabaMeslegi.TabIndex = 3;
+            lblBabaMeslegi.Text = "Mesleği";
+            // 
+            // txtBabaAdiSoyadi
+            // 
+            txtBabaAdiSoyadi.Location = new Point(156, 59);
+            txtBabaAdiSoyadi.Margin = new Padding(6);
+            txtBabaAdiSoyadi.Name = "txtBabaAdiSoyadi";
+            txtBabaAdiSoyadi.Size = new Size(680, 40);
+            txtBabaAdiSoyadi.TabIndex = 4;
+            // 
+            // lblBabaAdiSoyadi
+            // 
+            lblBabaAdiSoyadi.AutoSize = true;
+            lblBabaAdiSoyadi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBabaAdiSoyadi.Location = new Point(14, 63);
+            lblBabaAdiSoyadi.Margin = new Padding(6, 0, 6, 0);
+            lblBabaAdiSoyadi.Name = "lblBabaAdiSoyadi";
+            lblBabaAdiSoyadi.Size = new Size(136, 32);
+            lblBabaAdiSoyadi.TabIndex = 3;
+            lblBabaAdiSoyadi.Text = "Adı Soyadı";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(txtAnneTlf2);
+            groupBox2.Controls.Add(lblAnneTlf2);
+            groupBox2.Controls.Add(txtAnneTlf1);
+            groupBox2.Controls.Add(lblAnneTlf1);
+            groupBox2.Controls.Add(txtAnneMeslegi);
+            groupBox2.Controls.Add(lblAnneMeslegi);
+            groupBox2.Controls.Add(txtAnneAdiSoyadi);
+            groupBox2.Controls.Add(lblAnneAdiSoyadi);
+            groupBox2.Location = new Point(9, 697);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(855, 303);
+            groupBox2.TabIndex = 5;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "ANNE BİLGİLERİ";
+            // 
+            // txtAnneTlf2
+            // 
+            txtAnneTlf2.Location = new Point(566, 243);
+            txtAnneTlf2.Margin = new Padding(6);
+            txtAnneTlf2.Name = "txtAnneTlf2";
+            txtAnneTlf2.Size = new Size(270, 40);
+            txtAnneTlf2.TabIndex = 4;
+            // 
+            // lblAnneTlf2
+            // 
+            lblAnneTlf2.AutoSize = true;
+            lblAnneTlf2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAnneTlf2.Location = new Point(440, 247);
+            lblAnneTlf2.Margin = new Padding(6, 0, 6, 0);
+            lblAnneTlf2.Name = "lblAnneTlf2";
+            lblAnneTlf2.Size = new Size(112, 32);
+            lblAnneTlf2.TabIndex = 3;
+            lblAnneTlf2.Text = "Telefon2";
+            // 
+            // txtAnneTlf1
+            // 
+            txtAnneTlf1.Location = new Point(156, 243);
+            txtAnneTlf1.Margin = new Padding(6);
+            txtAnneTlf1.Name = "txtAnneTlf1";
+            txtAnneTlf1.Size = new Size(270, 40);
+            txtAnneTlf1.TabIndex = 4;
+            // 
+            // lblAnneTlf1
+            // 
+            lblAnneTlf1.AutoSize = true;
+            lblAnneTlf1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAnneTlf1.Location = new Point(14, 247);
+            lblAnneTlf1.Margin = new Padding(6, 0, 6, 0);
+            lblAnneTlf1.Name = "lblAnneTlf1";
+            lblAnneTlf1.Size = new Size(119, 32);
+            lblAnneTlf1.TabIndex = 3;
+            lblAnneTlf1.Text = "Telefon 1";
+            // 
+            // txtAnneMeslegi
+            // 
+            txtAnneMeslegi.Location = new Point(156, 135);
+            txtAnneMeslegi.Margin = new Padding(6);
+            txtAnneMeslegi.Name = "txtAnneMeslegi";
+            txtAnneMeslegi.Size = new Size(680, 40);
+            txtAnneMeslegi.TabIndex = 4;
+            // 
+            // lblAnneMeslegi
+            // 
+            lblAnneMeslegi.AutoSize = true;
+            lblAnneMeslegi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAnneMeslegi.Location = new Point(14, 139);
+            lblAnneMeslegi.Margin = new Padding(6, 0, 6, 0);
+            lblAnneMeslegi.Name = "lblAnneMeslegi";
+            lblAnneMeslegi.Size = new Size(103, 32);
+            lblAnneMeslegi.TabIndex = 3;
+            lblAnneMeslegi.Text = "Mesleği";
+            // 
+            // txtAnneAdiSoyadi
+            // 
+            txtAnneAdiSoyadi.Location = new Point(156, 59);
+            txtAnneAdiSoyadi.Margin = new Padding(6);
+            txtAnneAdiSoyadi.Name = "txtAnneAdiSoyadi";
+            txtAnneAdiSoyadi.Size = new Size(680, 40);
+            txtAnneAdiSoyadi.TabIndex = 4;
+            // 
+            // lblAnneAdiSoyadi
+            // 
+            lblAnneAdiSoyadi.AutoSize = true;
+            lblAnneAdiSoyadi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAnneAdiSoyadi.Location = new Point(14, 63);
+            lblAnneAdiSoyadi.Margin = new Padding(6, 0, 6, 0);
+            lblAnneAdiSoyadi.Name = "lblAnneAdiSoyadi";
+            lblAnneAdiSoyadi.Size = new Size(136, 32);
+            lblAnneAdiSoyadi.TabIndex = 3;
+            lblAnneAdiSoyadi.Text = "Adı Soyadı";
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.PaleTurquoise;
+            groupBox1.Controls.Add(cmbBxIlce);
+            groupBox1.Controls.Add(lblIlce);
+            groupBox1.Controls.Add(cmbBxSehir);
+            groupBox1.Controls.Add(lblSehir);
+            groupBox1.Controls.Add(cmbBxUlke);
+            groupBox1.Controls.Add(lblUlke);
+            groupBox1.Controls.Add(txtAcikAdres);
+            groupBox1.Controls.Add(lblacikAdres);
+            groupBox1.Location = new Point(9, 293);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1052, 387);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Adres Blgileri";
+            // 
+            // cmbBxIlce
+            // 
+            cmbBxIlce.BackColor = Color.LightSalmon;
+            cmbBxIlce.FormattingEnabled = true;
+            cmbBxIlce.Location = new Point(687, 112);
+            cmbBxIlce.Margin = new Padding(6);
+            cmbBxIlce.Name = "cmbBxIlce";
+            cmbBxIlce.Size = new Size(359, 40);
+            cmbBxIlce.TabIndex = 2;
+            // 
+            // lblIlce
+            // 
+            lblIlce.AutoSize = true;
+            lblIlce.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIlce.Location = new Point(612, 119);
+            lblIlce.Margin = new Padding(6, 0, 6, 0);
+            lblIlce.Name = "lblIlce";
+            lblIlce.Size = new Size(54, 32);
+            lblIlce.TabIndex = 3;
+            lblIlce.Text = "İlçe";
+            // 
+            // cmbBxSehir
+            // 
+            cmbBxSehir.BackColor = Color.LightSalmon;
+            cmbBxSehir.FormattingEnabled = true;
+            cmbBxSehir.Location = new Point(149, 116);
+            cmbBxSehir.Margin = new Padding(6);
+            cmbBxSehir.Name = "cmbBxSehir";
+            cmbBxSehir.Size = new Size(364, 40);
+            cmbBxSehir.TabIndex = 2;
+            // 
+            // lblSehir
+            // 
+            lblSehir.AutoSize = true;
+            lblSehir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSehir.Location = new Point(13, 120);
+            lblSehir.Margin = new Padding(6, 0, 6, 0);
+            lblSehir.Name = "lblSehir";
+            lblSehir.Size = new Size(71, 32);
+            lblSehir.TabIndex = 3;
+            lblSehir.Text = "Şehir";
+            // 
+            // cmbBxUlke
+            // 
+            cmbBxUlke.BackColor = Color.LightSalmon;
+            cmbBxUlke.FormattingEnabled = true;
+            cmbBxUlke.Location = new Point(149, 53);
+            cmbBxUlke.Margin = new Padding(6);
+            cmbBxUlke.Name = "cmbBxUlke";
+            cmbBxUlke.Size = new Size(897, 40);
+            cmbBxUlke.TabIndex = 2;
+            // 
+            // lblUlke
+            // 
+            lblUlke.AutoSize = true;
+            lblUlke.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUlke.Location = new Point(13, 56);
+            lblUlke.Margin = new Padding(6, 0, 6, 0);
+            lblUlke.Name = "lblUlke";
+            lblUlke.Size = new Size(64, 32);
+            lblUlke.TabIndex = 3;
+            lblUlke.Text = "Ülke";
+            // 
+            // txtAcikAdres
+            // 
+            txtAcikAdres.Location = new Point(149, 168);
+            txtAcikAdres.Margin = new Padding(6);
+            txtAcikAdres.Multiline = true;
+            txtAcikAdres.Name = "txtAcikAdres";
+            txtAcikAdres.Size = new Size(897, 210);
+            txtAcikAdres.TabIndex = 4;
+            // 
+            // lblacikAdres
+            // 
+            lblacikAdres.AutoSize = true;
+            lblacikAdres.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblacikAdres.Location = new Point(19, 222);
+            lblacikAdres.Margin = new Padding(6, 0, 6, 0);
+            lblacikAdres.Name = "lblacikAdres";
+            lblacikAdres.Size = new Size(80, 64);
+            lblacikAdres.TabIndex = 3;
+            lblacikAdres.Text = "Açık \r\nAdres";
+            // 
+            // mbBxServisDonemi
+            // 
+            mbBxServisDonemi.BackColor = Color.LightSalmon;
+            mbBxServisDonemi.FormattingEnabled = true;
+            mbBxServisDonemi.Location = new Point(704, 181);
+            mbBxServisDonemi.Margin = new Padding(6);
+            mbBxServisDonemi.Name = "mbBxServisDonemi";
+            mbBxServisDonemi.Size = new Size(351, 40);
+            mbBxServisDonemi.TabIndex = 2;
+            // 
+            // cmbBxBolumsinif
+            // 
+            cmbBxBolumsinif.BackColor = Color.LightSalmon;
+            cmbBxBolumsinif.FormattingEnabled = true;
+            cmbBxBolumsinif.Location = new Point(704, 229);
+            cmbBxBolumsinif.Margin = new Padding(6);
+            cmbBxBolumsinif.Name = "cmbBxBolumsinif";
+            cmbBxBolumsinif.Size = new Size(351, 40);
+            cmbBxBolumsinif.TabIndex = 2;
+            // 
+            // cmbBxOkulTuru
+            // 
+            cmbBxOkulTuru.BackColor = Color.LightSalmon;
+            cmbBxOkulTuru.FormattingEnabled = true;
+            cmbBxOkulTuru.Location = new Point(158, 233);
+            cmbBxOkulTuru.Margin = new Padding(6);
+            cmbBxOkulTuru.Name = "cmbBxOkulTuru";
+            cmbBxOkulTuru.Size = new Size(364, 40);
+            cmbBxOkulTuru.TabIndex = 2;
+            // 
+            // cmbBxServisAraci
+            // 
+            cmbBxServisAraci.BackColor = Color.LightSalmon;
+            cmbBxServisAraci.FormattingEnabled = true;
+            cmbBxServisAraci.Location = new Point(158, 181);
+            cmbBxServisAraci.Margin = new Padding(6);
+            cmbBxServisAraci.Name = "cmbBxServisAraci";
+            cmbBxServisAraci.Size = new Size(364, 40);
+            cmbBxServisAraci.TabIndex = 2;
+            // 
+            // txtOgrenciOkulu
+            // 
+            txtOgrenciOkulu.BackColor = Color.LightSalmon;
+            txtOgrenciOkulu.FormattingEnabled = true;
+            txtOgrenciOkulu.Location = new Point(158, 129);
+            txtOgrenciOkulu.Margin = new Padding(6);
+            txtOgrenciOkulu.Name = "txtOgrenciOkulu";
+            txtOgrenciOkulu.Size = new Size(897, 40);
+            txtOgrenciOkulu.TabIndex = 2;
             // 
             // grbBxOgrenciResmi
             // 
             grbBxOgrenciResmi.AccessibleRole = AccessibleRole.None;
-            grbBxOgrenciResmi.Controls.Add(textBox6);
-            grbBxOgrenciResmi.Controls.Add(label14);
+            grbBxOgrenciResmi.Controls.Add(txtNot);
+            grbBxOgrenciResmi.Controls.Add(lblNot);
             grbBxOgrenciResmi.Controls.Add(picOgrenciResmi);
             grbBxOgrenciResmi.ImeMode = ImeMode.NoControl;
             grbBxOgrenciResmi.Location = new Point(1070, 23);
-            grbBxOgrenciResmi.Margin = new Padding(6, 6, 6, 6);
+            grbBxOgrenciResmi.Margin = new Padding(6);
             grbBxOgrenciResmi.Name = "grbBxOgrenciResmi";
-            grbBxOgrenciResmi.Padding = new Padding(6, 6, 6, 6);
+            grbBxOgrenciResmi.Padding = new Padding(6);
             grbBxOgrenciResmi.Size = new Size(670, 657);
             grbBxOgrenciResmi.TabIndex = 7;
             grbBxOgrenciResmi.TabStop = false;
             grbBxOgrenciResmi.Text = "ÖĞRENCİ RESMİ";
             // 
-            // dateTimePicker1
+            // txtNot
             // 
-            dateTimePicker1.Location = new Point(704, 17);
-            dateTimePicker1.Margin = new Padding(6, 6, 6, 6);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(351, 40);
-            dateTimePicker1.TabIndex = 6;
+            txtNot.Location = new Point(104, 519);
+            txtNot.Margin = new Padding(6);
+            txtNot.Multiline = true;
+            txtNot.Name = "txtNot";
+            txtNot.Size = new Size(544, 126);
+            txtNot.TabIndex = 4;
             // 
-            // button1
+            // lblNot
             // 
-            button1.Location = new Point(468, 11);
-            button1.Margin = new Padding(6, 6, 6, 6);
-            button1.Name = "button1";
-            button1.Size = new Size(54, 44);
-            button1.TabIndex = 5;
-            button1.Text = "...";
-            button1.UseVisualStyleBackColor = true;
+            lblNot.AutoSize = true;
+            lblNot.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNot.Location = new Point(12, 566);
+            lblNot.Margin = new Padding(6, 0, 6, 0);
+            lblNot.Name = "lblNot";
+            lblNot.Size = new Size(71, 32);
+            lblNot.TabIndex = 3;
+            lblNot.Text = "NOT:";
             // 
-            // textBox2
+            // picOgrenciResmi
             // 
-            textBox2.Location = new Point(158, 13);
-            textBox2.Margin = new Padding(6, 6, 6, 6);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(312, 40);
-            textBox2.TabIndex = 4;
+            picOgrenciResmi.Location = new Point(18, 42);
+            picOgrenciResmi.Name = "picOgrenciResmi";
+            picOgrenciResmi.Size = new Size(643, 457);
+            picOgrenciResmi.TabIndex = 0;
+            picOgrenciResmi.TabStop = false;
             // 
-            // label2
+            // dtpKayıtTarihi
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(550, 16);
-            label2.Margin = new Padding(6, 0, 6, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(142, 32);
-            label2.TabIndex = 3;
-            label2.Text = "Kayıt Tarihi";
+            dtpKayıtTarihi.Location = new Point(704, 17);
+            dtpKayıtTarihi.Margin = new Padding(6);
+            dtpKayıtTarihi.Name = "dtpKayıtTarihi";
+            dtpKayıtTarihi.Size = new Size(351, 40);
+            dtpKayıtTarihi.TabIndex = 6;
             // 
-            // label1
+            // btnKimlikNo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(27, 17);
-            label1.Margin = new Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(127, 32);
-            label1.TabIndex = 3;
-            label1.Text = "Kimlik No";
+            btnKimlikNo.Location = new Point(468, 11);
+            btnKimlikNo.Margin = new Padding(6);
+            btnKimlikNo.Name = "btnKimlikNo";
+            btnKimlikNo.Size = new Size(54, 44);
+            btnKimlikNo.TabIndex = 5;
+            btnKimlikNo.Text = "...";
+            btnKimlikNo.UseVisualStyleBackColor = true;
+            // 
+            // txtOgrenciSoyadi
+            // 
+            txtOgrenciSoyadi.Location = new Point(704, 71);
+            txtOgrenciSoyadi.Margin = new Padding(6);
+            txtOgrenciSoyadi.Name = "txtOgrenciSoyadi";
+            txtOgrenciSoyadi.Size = new Size(351, 40);
+            txtOgrenciSoyadi.TabIndex = 4;
+            // 
+            // txtOgrenciAdi
+            // 
+            txtOgrenciAdi.Location = new Point(158, 67);
+            txtOgrenciAdi.Margin = new Padding(6);
+            txtOgrenciAdi.Name = "txtOgrenciAdi";
+            txtOgrenciAdi.Size = new Size(364, 40);
+            txtOgrenciAdi.TabIndex = 4;
+            // 
+            // txtKimlikNo
+            // 
+            txtKimlikNo.Location = new Point(158, 13);
+            txtKimlikNo.Margin = new Padding(6);
+            txtKimlikNo.Name = "txtKimlikNo";
+            txtKimlikNo.Size = new Size(312, 40);
+            txtKimlikNo.TabIndex = 4;
+            // 
+            // lblBolumSinif
+            // 
+            lblBolumSinif.AutoSize = true;
+            lblBolumSinif.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblBolumSinif.Location = new Point(545, 233);
+            lblBolumSinif.Margin = new Padding(6, 0, 6, 0);
+            lblBolumSinif.Name = "lblBolumSinif";
+            lblBolumSinif.Size = new Size(164, 32);
+            lblBolumSinif.TabIndex = 3;
+            lblBolumSinif.Text = "Bölüm / Sınıf";
+            // 
+            // lblServisDonemi
+            // 
+            lblServisDonemi.AutoSize = true;
+            lblServisDonemi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblServisDonemi.Location = new Point(530, 185);
+            lblServisDonemi.Margin = new Padding(6, 0, 6, 0);
+            lblServisDonemi.Name = "lblServisDonemi";
+            lblServisDonemi.Size = new Size(179, 32);
+            lblServisDonemi.TabIndex = 3;
+            lblServisDonemi.Text = "Servis Dönemi";
+            // 
+            // lblOkulTuru
+            // 
+            lblOkulTuru.AutoSize = true;
+            lblOkulTuru.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOkulTuru.Location = new Point(28, 237);
+            lblOkulTuru.Margin = new Padding(6, 0, 6, 0);
+            lblOkulTuru.Name = "lblOkulTuru";
+            lblOkulTuru.Size = new Size(126, 32);
+            lblOkulTuru.TabIndex = 3;
+            lblOkulTuru.Text = "Okul Türü";
+            // 
+            // lblOgrenciSoyadı
+            // 
+            lblOgrenciSoyadı.AutoSize = true;
+            lblOgrenciSoyadı.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOgrenciSoyadı.Location = new Point(602, 70);
+            lblOgrenciSoyadı.Margin = new Padding(6, 0, 6, 0);
+            lblOgrenciSoyadı.Name = "lblOgrenciSoyadı";
+            lblOgrenciSoyadı.Size = new Size(90, 32);
+            lblOgrenciSoyadı.TabIndex = 3;
+            lblOgrenciSoyadı.Text = "Soyadı";
+            lblOgrenciSoyadı.Click += label4_Click;
+            // 
+            // lblServisAraci
+            // 
+            lblServisAraci.AutoSize = true;
+            lblServisAraci.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblServisAraci.Location = new Point(6, 185);
+            lblServisAraci.Margin = new Padding(6, 0, 6, 0);
+            lblServisAraci.Name = "lblServisAraci";
+            lblServisAraci.Size = new Size(148, 32);
+            lblServisAraci.TabIndex = 3;
+            lblServisAraci.Text = "Servis Aracı";
+            // 
+            // lblOgrenciOkulu
+            // 
+            lblOgrenciOkulu.AutoSize = true;
+            lblOgrenciOkulu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOgrenciOkulu.Location = new Point(72, 129);
+            lblOgrenciOkulu.Margin = new Padding(6, 0, 6, 0);
+            lblOgrenciOkulu.Name = "lblOgrenciOkulu";
+            lblOgrenciOkulu.Size = new Size(82, 32);
+            lblOgrenciOkulu.TabIndex = 3;
+            lblOgrenciOkulu.Text = "Okulu";
+            // 
+            // lblOgrenciAdi
+            // 
+            lblOgrenciAdi.AutoSize = true;
+            lblOgrenciAdi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOgrenciAdi.Location = new Point(101, 71);
+            lblOgrenciAdi.Margin = new Padding(6, 0, 6, 0);
+            lblOgrenciAdi.Name = "lblOgrenciAdi";
+            lblOgrenciAdi.Size = new Size(53, 32);
+            lblOgrenciAdi.TabIndex = 3;
+            lblOgrenciAdi.Text = "Adı";
+            // 
+            // lblKayıtTarihi
+            // 
+            lblKayıtTarihi.AutoSize = true;
+            lblKayıtTarihi.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblKayıtTarihi.Location = new Point(550, 16);
+            lblKayıtTarihi.Margin = new Padding(6, 0, 6, 0);
+            lblKayıtTarihi.Name = "lblKayıtTarihi";
+            lblKayıtTarihi.Size = new Size(142, 32);
+            lblKayıtTarihi.TabIndex = 3;
+            lblKayıtTarihi.Text = "Kayıt Tarihi";
+            // 
+            // lblKimlikNo
+            // 
+            lblKimlikNo.AutoSize = true;
+            lblKimlikNo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblKimlikNo.Location = new Point(27, 17);
+            lblKimlikNo.Margin = new Padding(6, 0, 6, 0);
+            lblKimlikNo.Name = "lblKimlikNo";
+            lblKimlikNo.Size = new Size(127, 32);
+            lblKimlikNo.TabIndex = 3;
+            lblKimlikNo.Text = "Kimlik No";
             // 
             // tabPage2
             // 
             tabPage2.BackColor = Color.LightCyan;
             tabPage2.Location = new Point(8, 46);
-            tabPage2.Margin = new Padding(6, 6, 6, 6);
+            tabPage2.Margin = new Padding(6);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(6, 6, 6, 6);
+            tabPage2.Padding = new Padding(6);
             tabPage2.Size = new Size(1750, 1087);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Detay Bilgiler";
@@ -235,39 +701,39 @@
             // panel2
             // 
             panel2.BackColor = Color.PowderBlue;
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(cmbBxAktif);
+            panel2.Controls.Add(txtOgrenciKodu);
             panel2.Controls.Add(lblAktif);
             panel2.Controls.Add(lblKodu);
             panel2.Location = new Point(6, 26);
-            panel2.Margin = new Padding(6, 6, 6, 6);
+            panel2.Margin = new Padding(6);
             panel2.Name = "panel2";
             panel2.Size = new Size(1766, 87);
             panel2.TabIndex = 0;
             // 
-            // comboBox1
+            // cmbBxAktif
             // 
-            comboBox1.BackColor = Color.LightSalmon;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(446, 21);
-            comboBox1.Margin = new Padding(6, 6, 6, 6);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(186, 40);
-            comboBox1.TabIndex = 2;
+            cmbBxAktif.BackColor = Color.LightSalmon;
+            cmbBxAktif.FormattingEnabled = true;
+            cmbBxAktif.Location = new Point(446, 21);
+            cmbBxAktif.Margin = new Padding(6);
+            cmbBxAktif.Name = "cmbBxAktif";
+            cmbBxAktif.Size = new Size(186, 40);
+            cmbBxAktif.TabIndex = 2;
             // 
-            // textBox1
+            // txtOgrenciKodu
             // 
-            textBox1.Location = new Point(95, 21);
-            textBox1.Margin = new Padding(6, 6, 6, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(336, 39);
-            textBox1.TabIndex = 1;
+            txtOgrenciKodu.Location = new Point(95, 22);
+            txtOgrenciKodu.Margin = new Padding(6);
+            txtOgrenciKodu.Name = "txtOgrenciKodu";
+            txtOgrenciKodu.Size = new Size(336, 39);
+            txtOgrenciKodu.TabIndex = 1;
             // 
             // lblAktif
             // 
             lblAktif.AutoSize = true;
             lblAktif.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblAktif.Location = new Point(648, 30);
+            lblAktif.Location = new Point(648, 25);
             lblAktif.Margin = new Padding(6, 0, 6, 0);
             lblAktif.Name = "lblAktif";
             lblAktif.Size = new Size(69, 32);
@@ -278,478 +744,12 @@
             // 
             lblKodu.AutoSize = true;
             lblKodu.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblKodu.Location = new Point(17, 30);
+            lblKodu.Location = new Point(17, 25);
             lblKodu.Margin = new Padding(6, 0, 6, 0);
             lblKodu.Name = "lblKodu";
             lblKodu.Size = new Size(75, 32);
             lblKodu.TabIndex = 0;
             lblKodu.Text = "Kodu";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(101, 71);
-            label3.Margin = new Padding(6, 0, 6, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(53, 32);
-            label3.TabIndex = 3;
-            label3.Text = "Adı";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(158, 67);
-            textBox3.Margin = new Padding(6);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(364, 40);
-            textBox3.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(602, 70);
-            label4.Margin = new Padding(6, 0, 6, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(90, 32);
-            label4.TabIndex = 3;
-            label4.Text = "Soyadı";
-            label4.Click += label4_Click;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(704, 71);
-            textBox4.Margin = new Padding(6);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(351, 40);
-            textBox4.TabIndex = 4;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(72, 129);
-            label5.Margin = new Padding(6, 0, 6, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(82, 32);
-            label5.TabIndex = 3;
-            label5.Text = "Okulu";
-            // 
-            // comboBox2
-            // 
-            comboBox2.BackColor = Color.LightSalmon;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(158, 129);
-            comboBox2.Margin = new Padding(6);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(897, 40);
-            comboBox2.TabIndex = 2;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(6, 185);
-            label6.Margin = new Padding(6, 0, 6, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(148, 32);
-            label6.TabIndex = 3;
-            label6.Text = "Servis Aracı";
-            // 
-            // comboBox3
-            // 
-            comboBox3.BackColor = Color.LightSalmon;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(158, 181);
-            comboBox3.Margin = new Padding(6);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(364, 40);
-            comboBox3.TabIndex = 2;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(530, 185);
-            label7.Margin = new Padding(6, 0, 6, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(179, 32);
-            label7.TabIndex = 3;
-            label7.Text = "Servis Dönemi";
-            // 
-            // comboBox4
-            // 
-            comboBox4.BackColor = Color.LightSalmon;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(704, 181);
-            comboBox4.Margin = new Padding(6);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(351, 40);
-            comboBox4.TabIndex = 2;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(28, 237);
-            label8.Margin = new Padding(6, 0, 6, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(126, 32);
-            label8.TabIndex = 3;
-            label8.Text = "Okul Türü";
-            // 
-            // comboBox5
-            // 
-            comboBox5.BackColor = Color.LightSalmon;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(158, 233);
-            comboBox5.Margin = new Padding(6);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(364, 40);
-            comboBox5.TabIndex = 2;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(545, 233);
-            label9.Margin = new Padding(6, 0, 6, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(164, 32);
-            label9.TabIndex = 3;
-            label9.Text = "Bölüm / Sınıf";
-            // 
-            // comboBox6
-            // 
-            comboBox6.BackColor = Color.LightSalmon;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(704, 229);
-            comboBox6.Margin = new Padding(6);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(351, 40);
-            comboBox6.TabIndex = 2;
-            // 
-            // groupBox1
-            // 
-            groupBox1.BackColor = Color.PaleTurquoise;
-            groupBox1.Controls.Add(comboBox8);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(comboBox9);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(comboBox7);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Location = new Point(9, 293);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1052, 387);
-            groupBox1.TabIndex = 8;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Adres Blgileri";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(13, 56);
-            label10.Margin = new Padding(6, 0, 6, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(64, 32);
-            label10.TabIndex = 3;
-            label10.Text = "Ülke";
-            // 
-            // comboBox7
-            // 
-            comboBox7.BackColor = Color.LightSalmon;
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(149, 53);
-            comboBox7.Margin = new Padding(6);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(897, 40);
-            comboBox7.TabIndex = 2;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(612, 119);
-            label11.Margin = new Padding(6, 0, 6, 0);
-            label11.Name = "label11";
-            label11.Size = new Size(54, 32);
-            label11.TabIndex = 3;
-            label11.Text = "İlçe";
-            // 
-            // comboBox8
-            // 
-            comboBox8.BackColor = Color.LightSalmon;
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(687, 112);
-            comboBox8.Margin = new Padding(6);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(359, 40);
-            comboBox8.TabIndex = 2;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(13, 120);
-            label12.Margin = new Padding(6, 0, 6, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(71, 32);
-            label12.TabIndex = 3;
-            label12.Text = "Şehir";
-            // 
-            // comboBox9
-            // 
-            comboBox9.BackColor = Color.LightSalmon;
-            comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(149, 116);
-            comboBox9.Margin = new Padding(6);
-            comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(364, 40);
-            comboBox9.TabIndex = 2;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(19, 222);
-            label13.Margin = new Padding(6, 0, 6, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(80, 64);
-            label13.TabIndex = 3;
-            label13.Text = "Açık \r\nAdres";
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(149, 168);
-            textBox5.Margin = new Padding(6);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(897, 210);
-            textBox5.TabIndex = 4;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(textBox10);
-            groupBox2.Controls.Add(label18);
-            groupBox2.Controls.Add(textBox9);
-            groupBox2.Controls.Add(label17);
-            groupBox2.Controls.Add(textBox8);
-            groupBox2.Controls.Add(label16);
-            groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(label15);
-            groupBox2.Location = new Point(9, 697);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(855, 303);
-            groupBox2.TabIndex = 5;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "ANNE BİLGİLERİ";
-            // 
-            // picOgrenciResmi
-            // 
-            picOgrenciResmi.Location = new Point(18, 42);
-            picOgrenciResmi.Name = "picOgrenciResmi";
-            picOgrenciResmi.Size = new Size(643, 457);
-            picOgrenciResmi.TabIndex = 0;
-            picOgrenciResmi.TabStop = false;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(12, 566);
-            label14.Margin = new Padding(6, 0, 6, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(80, 64);
-            label14.TabIndex = 3;
-            label14.Text = "Açık \r\nAdres";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(104, 519);
-            textBox6.Margin = new Padding(6);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(544, 126);
-            textBox6.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            panel3.Location = new Point(9, 1016);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1726, 62);
-            panel3.TabIndex = 0;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.Location = new Point(14, 63);
-            label15.Margin = new Padding(6, 0, 6, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(136, 32);
-            label15.TabIndex = 3;
-            label15.Text = "Adı Soyadı";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(156, 59);
-            textBox7.Margin = new Padding(6);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(680, 40);
-            textBox7.TabIndex = 4;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label16.Location = new Point(14, 139);
-            label16.Margin = new Padding(6, 0, 6, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(103, 32);
-            label16.TabIndex = 3;
-            label16.Text = "Mesleği";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(156, 135);
-            textBox8.Margin = new Padding(6);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(680, 40);
-            textBox8.TabIndex = 4;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(14, 247);
-            label17.Margin = new Padding(6, 0, 6, 0);
-            label17.Name = "label17";
-            label17.Size = new Size(119, 32);
-            label17.TabIndex = 3;
-            label17.Text = "Telefon 1";
-            // 
-            // textBox9
-            // 
-            textBox9.Location = new Point(156, 243);
-            textBox9.Margin = new Padding(6);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(270, 40);
-            textBox9.TabIndex = 4;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(440, 247);
-            label18.Margin = new Padding(6, 0, 6, 0);
-            label18.Name = "label18";
-            label18.Size = new Size(112, 32);
-            label18.TabIndex = 3;
-            label18.Text = "Telefon2";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(566, 243);
-            textBox10.Margin = new Padding(6);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(270, 40);
-            textBox10.TabIndex = 4;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(textBox11);
-            groupBox3.Controls.Add(label19);
-            groupBox3.Controls.Add(textBox12);
-            groupBox3.Controls.Add(label20);
-            groupBox3.Controls.Add(textBox13);
-            groupBox3.Controls.Add(label21);
-            groupBox3.Controls.Add(textBox14);
-            groupBox3.Controls.Add(label22);
-            groupBox3.Location = new Point(886, 697);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(855, 303);
-            groupBox3.TabIndex = 5;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "BABA BİLGİLERİ";
-            // 
-            // textBox11
-            // 
-            textBox11.Location = new Point(566, 243);
-            textBox11.Margin = new Padding(6);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(270, 40);
-            textBox11.TabIndex = 4;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(440, 247);
-            label19.Margin = new Padding(6, 0, 6, 0);
-            label19.Name = "label19";
-            label19.Size = new Size(112, 32);
-            label19.TabIndex = 3;
-            label19.Text = "Telefon2";
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(156, 243);
-            textBox12.Margin = new Padding(6);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(270, 40);
-            textBox12.TabIndex = 4;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.Location = new Point(14, 247);
-            label20.Margin = new Padding(6, 0, 6, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(119, 32);
-            label20.TabIndex = 3;
-            label20.Text = "Telefon 1";
-            // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(156, 135);
-            textBox13.Margin = new Padding(6);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(680, 40);
-            textBox13.TabIndex = 4;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label21.Location = new Point(14, 139);
-            label21.Margin = new Padding(6, 0, 6, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(103, 32);
-            label21.TabIndex = 3;
-            label21.Text = "Mesleği";
-            // 
-            // textBox14
-            // 
-            textBox14.Location = new Point(156, 59);
-            textBox14.Margin = new Padding(6);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(680, 40);
-            textBox14.TabIndex = 4;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label22.Location = new Point(14, 63);
-            label22.Margin = new Padding(6, 0, 6, 0);
-            label22.Name = "label22";
-            label22.Size = new Size(136, 32);
-            label22.TabIndex = 3;
-            label22.Text = "Adı Soyadı";
             // 
             // AnaSayfaFrm
             // 
@@ -762,19 +762,19 @@
             Text = "Öğrenci Kayıt Formu";
             panel1.ResumeLayout(false);
             tbCrlOgrenciKayit.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            grbBxOgrenciResmi.ResumeLayout(false);
-            grbBxOgrenciResmi.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picOgrenciResmi).EndInit();
+            tpKisiselBilgiler.ResumeLayout(false);
+            tpKisiselBilgiler.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            grbBxOgrenciResmi.ResumeLayout(false);
+            grbBxOgrenciResmi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picOgrenciResmi).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -783,62 +783,62 @@
         private Panel panel1;
         private Panel panel2;
         private Label lblKodu;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
+        private ComboBox cmbBxAktif;
+        private TextBox txtOgrenciKodu;
         private Label lblAktif;
         private TabControl tbCrlOgrenciKayit;
-        private TabPage tabPage1;
+        private TabPage tpKisiselBilgiler;
         private TabPage tabPage2;
-        private Button button1;
-        private TextBox textBox2;
-        private Label label1;
+        private Button btnKimlikNo;
+        private TextBox txtKimlikNo;
+        private Label lblKimlikNo;
         private GroupBox grbBxOgrenciResmi;
-        private DateTimePicker dateTimePicker1;
-        private Label label2;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private Label label4;
-        private Label label3;
-        private ComboBox comboBox3;
-        private ComboBox comboBox2;
-        private Label label6;
-        private Label label5;
-        private ComboBox comboBox4;
-        private Label label7;
+        private DateTimePicker dtpKayıtTarihi;
+        private Label lblKayıtTarihi;
+        private TextBox txtOgrenciSoyadi;
+        private TextBox txtOgrenciAdi;
+        private Label lblOgrenciSoyadı;
+        private Label lblOgrenciAdi;
+        private ComboBox cmbBxServisAraci;
+        private ComboBox txtOgrenciOkulu;
+        private Label lblServisAraci;
+        private Label lblOgrenciOkulu;
+        private ComboBox mbBxServisDonemi;
+        private Label lblServisDonemi;
         private GroupBox groupBox1;
-        private ComboBox comboBox8;
-        private Label label11;
-        private ComboBox comboBox7;
-        private Label label10;
-        private ComboBox comboBox6;
-        private ComboBox comboBox5;
-        private Label label9;
-        private Label label8;
-        private ComboBox comboBox9;
-        private Label label12;
-        private TextBox textBox5;
-        private Label label13;
+        private ComboBox cmbBxIlce;
+        private Label lblIlce;
+        private ComboBox cmbBxUlke;
+        private Label lblUlke;
+        private ComboBox cmbBxBolumsinif;
+        private ComboBox cmbBxOkulTuru;
+        private Label lblBolumSinif;
+        private Label lblOkulTuru;
+        private ComboBox cmbBxSehir;
+        private Label lblSehir;
+        private TextBox txtAcikAdres;
+        private Label lblacikAdres;
         private GroupBox groupBox2;
-        private TextBox textBox6;
-        private Label label14;
+        private TextBox txtNot;
+        private Label lblNot;
         private PictureBox picOgrenciResmi;
         private Panel panel3;
-        private TextBox textBox10;
-        private Label label18;
-        private TextBox textBox9;
-        private Label label17;
-        private TextBox textBox8;
-        private Label label16;
-        private TextBox textBox7;
-        private Label label15;
+        private TextBox txtAnneTlf2;
+        private Label lblAnneTlf2;
+        private TextBox txtAnneTlf1;
+        private Label lblAnneTlf1;
+        private TextBox txtAnneMeslegi;
+        private Label lblAnneMeslegi;
+        private TextBox txtAnneAdiSoyadi;
+        private Label lblAnneAdiSoyadi;
         private GroupBox groupBox3;
-        private TextBox textBox11;
-        private Label label19;
-        private TextBox textBox12;
-        private Label label20;
-        private TextBox textBox13;
-        private Label label21;
-        private TextBox textBox14;
-        private Label label22;
+        private TextBox txtBabaTlf2;
+        private Label lblBabaTlf2;
+        private TextBox txtBabaTlf1;
+        private Label lblBabaTlf1;
+        private TextBox txtBabaMeslegi;
+        private Label lblBabaMeslegi;
+        private TextBox txtBabaAdiSoyadi;
+        private Label lblBabaAdiSoyadi;
     }
 }
