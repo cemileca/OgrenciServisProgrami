@@ -20,6 +20,8 @@ namespace OgrenciServis.Persistence
             service.AddScoped<ICityService, CityService>();
             service.AddScoped<IAdressService, AdressService>();
             service.AddScoped<IDistrictService, DistrictService>();
+            service.AddScoped<IPersonalReadRepository, PersonalReadRepository>();
+            service.AddScoped<IPersonalWriteRepository, PersonalWriteRepository>();
         }
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace OgrenciServis.WinForm.Forms
 {
-    public partial class CocukKayitFrm : Form
+    public partial class KisiEkleFrm : Form
     {
-        public CocukKayitFrm()
+        public KisiEkleFrm()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
