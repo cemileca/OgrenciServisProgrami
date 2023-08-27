@@ -5,6 +5,7 @@ using OgrenciServis.Domain;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Persistence.Contexts;
 using OgrenciServis.Persistence.Repositories;
+using System.ComponentModel.Design;
 
 namespace OgrenciServis.Persistence.Services
 {
@@ -12,27 +13,32 @@ namespace OgrenciServis.Persistence.Services
     {
         #region TANIMLAMALAR
         readonly private IAdressWriteRepository _adressWriteRepository;
-        readonly private IAdressReadRepository _adressReadRepository;
+         private IAdressReadRepository _adressReadRepository;
         readonly private ICountryReadRepository _countryReadRepository;
         readonly private ICityReadRepository _cityReadRepository;
         readonly private IDistrcitReadRepository _districtReadRepository;
+        readonly private OgrenciServisDbContext _servisDbContext;
+
         #endregion
         public AdressService()
         {
             var option = new DbContextOptionsBuilder<OgrenciServisDbContext>().UseNpgsql(Configurations.ConnectionString).Options;
             var ctx = new OgrenciServisDbContext(option);
-            _adressReadRepository = new AdressReadRepository(ctx);
+            _servisDbContext = ctx;
             _adressWriteRepository = new AdressWriteRepository(ctx);
             _cityReadRepository = new CityReadRepository(ctx);
             _countryReadRepository = new CountryReadRepository(ctx);
             _districtReadRepository = new DistrictReadRepository(ctx);
         }
 
-        public async Task AddCityAsync(VM_AdressAdd vM_Adress)
+        public async Task AddAdressAsync(VM_AdressAdd vM_Adress)
         {
+            _adressReadRepository = new AdressReadRepository(_servisDbContext);
+
+           
             Adress adress = new Adress();
             adress.AdressName = vM_Adress.AdressName;
-            adress.AdresDescription = vM_Adress.AdresDescription;
+            adress.OpenAdress = vM_Adress.AdresDescription;
 
             Country country = await _countryReadRepository.GetByIdAsync(vM_Adress.CountriId.GetValueOrDefault());
             City city = await _cityReadRepository.GetByIdAsync(vM_Adress.CityId.GetValueOrDefault());
@@ -43,6 +49,18 @@ namespace OgrenciServis.Persistence.Services
 
             await _adressWriteRepository.AddAsync(adress);
             await _adressWriteRepository.SaveChangesAsyncc();
+        }
+
+        public async Task<Adress> GetAdressById(int Id)
+        {
+            Adress adress = await _adressReadRepository.GetByIdAsync(Id);
+            return adress;
+        }
+
+        public async Task<Adress> GetAdressByOpenAdress(string OpenAdres)
+        {
+          return await _adressReadRepository.Table.FirstOrDefaultAsync(a=>a.OpenAdress==OpenAdres);
+              
         }
 
         public IQueryable<Adress> GetAllAdresses()
@@ -59,8 +77,10 @@ namespace OgrenciServis.Persistence.Services
 
         public async Task RemoveAdressAsync(int Id)
         {
-           await _adressWriteRepository.RemoveByIdAsync(Id);
+            await _adressWriteRepository.RemoveByIdAsync(Id);
             await _adressWriteRepository.SaveChangesAsyncc();
         }
+
+
     }
 }

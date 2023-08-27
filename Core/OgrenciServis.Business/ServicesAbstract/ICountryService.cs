@@ -8,5 +8,7 @@ namespace OgrenciServis.Business.ServicesAbstract
         Task AddCountryAsync(VM_CountryAdd vm_CountryAdd);
         Task RemoveCityAsync(int Id);
         IQueryable<Country> GetAllCountry();
+        Task<Country> GetCountryByIdAsync(int id);
+
     }
 }

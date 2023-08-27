@@ -12,7 +12,7 @@ using OgrenciServis.Persistence.Contexts;
 namespace OgrenciServis.Persistence.Migrations
 {
     [DbContext(typeof(OgrenciServisDbContext))]
-    [Migration("20230821205117_mig_1")]
+    [Migration("20230826215907_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -63,9 +63,6 @@ namespace OgrenciServis.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AdresDescription")
-                        .HasColumnType("text");
-
                     b.Property<string>("AdressName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -84,6 +81,9 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.Property<int?>("DistrictId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("OpenAdress")
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");

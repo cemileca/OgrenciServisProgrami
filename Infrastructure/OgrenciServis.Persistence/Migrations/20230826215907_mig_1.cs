@@ -157,7 +157,7 @@ namespace OgrenciServis.Persistence.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     AdressName = table.Column<string>(type: "text", nullable: false),
-                    AdresDescription = table.Column<string>(type: "text", nullable: true),
+                    OpenAdress = table.Column<string>(type: "text", nullable: true),
                     CountryId = table.Column<int>(type: "integer", nullable: true),
                     CityId = table.Column<int>(type: "integer", nullable: true),
                     DistrictId = table.Column<int>(type: "integer", nullable: true),

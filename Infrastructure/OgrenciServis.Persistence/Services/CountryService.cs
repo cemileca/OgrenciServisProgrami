@@ -9,30 +9,51 @@ namespace OgrenciServis.Persistence.Services
 {
     public class CountryService : ICountryService
     {
-        readonly private CountryWriteRepository _countryWriteRepository;
-        readonly private CountryReadRepository _countryReadRepository;
+        readonly private OgrenciServisDbContext _context;
+        CountryWriteRepository _countryWriteRepository;
+        CountryReadRepository _countryReadRepository;
         public CountryService()
         {
             var option = new DbContextOptionsBuilder<OgrenciServisDbContext>().UseNpgsql(Configurations.ConnectionString).Options;
             var ctx = new OgrenciServisDbContext(option);
-            _countryWriteRepository = new CountryWriteRepository(ctx);
-            _countryReadRepository = new CountryReadRepository(ctx);
+            _context = ctx;
+
+
         }
 
         public async Task AddCountryAsync(VM_CountryAdd vm_CountryAdd)
         {
+            _countryWriteRepository = new CountryWriteRepository(_context);
+
             Country country = new Country();
             country.CountryName = vm_CountryAdd.CountryName;
             country.CountryCode = vm_CountryAdd.CountryCode;
             country.CountryDescription = vm_CountryAdd.CountryDescription;
             await _countryWriteRepository.AddAsync(country);
             await _countryWriteRepository.SaveChangesAsyncc();
+            _countryWriteRepository = null;
+        }
+
+        public CountryReadRepository Get_countryReadRepository()
+        {
+            return _countryReadRepository;
         }
 
         public IQueryable<Country> GetAllCountry()
         {
-            var query = _countryReadRepository.GetAll();
+            _countryReadRepository = new CountryReadRepository(_context);
+
+            IQueryable<Country> query = _countryReadRepository.GetAll();
             return query;
+        }
+
+        public async Task<Country> GetCountryByIdAsync(int id)
+        {
+            _countryReadRepository = new CountryReadRepository(_context);
+
+            Country country = await _countryReadRepository.GetByIdAsync(id);
+
+            return country;
         }
 
         public Task RemoveCityAsync(int Id)

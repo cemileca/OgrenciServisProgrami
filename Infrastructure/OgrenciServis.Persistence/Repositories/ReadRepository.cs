@@ -26,6 +26,7 @@ namespace OgrenciServis.Persistence.Repositories
 
         public async Task<T> GetByIdAsync(int id) => await Table.FindAsync(id);
 
+      
 
 
     }

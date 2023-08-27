@@ -199,7 +199,7 @@ namespace OgrenciServis.WinForm.Forms
             vM_AdressAdd.DistrictId = UlkeSehirIlceIdGetir(UlkeSehirIlceSec.Ilce);
 
             AdressService adressService = new AdressService();
-            await adressService.AddCityAsync(vM_AdressAdd);
+            await adressService.AddAdressAsync(vM_AdressAdd);
             adressService = null;
             MessageBox.Show("Test");
 

@@ -15,13 +15,15 @@ namespace OgrenciServis.Persistence
             service.AddDbContext<OgrenciServisDbContext>(options => options.UseNpgsql(Configurations.ConnectionString));
             service.AddScoped<IParentReadRepository, ParentReadRepository>();
             service.AddScoped<IParentWriteRepository, ParentWriteRepository>();
+            service.AddScoped<IPersonalReadRepository, PersonalReadRepository>();
+            service.AddScoped<IPersonalWriteRepository, PersonalWriteRepository>();
+            service.AddScoped<IAdressReadRepository, AdressReadRepository>();
+            service.AddScoped<IAdressWriteRepository, AdressWriteRepository>();
 
             service.AddScoped<ICountryService, CountryService>();
             service.AddScoped<ICityService, CityService>();
             service.AddScoped<IAdressService, AdressService>();
             service.AddScoped<IDistrictService, DistrictService>();
-            service.AddScoped<IPersonalReadRepository, PersonalReadRepository>();
-            service.AddScoped<IPersonalWriteRepository, PersonalWriteRepository>();
         }
     }
 }

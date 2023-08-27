@@ -60,9 +60,6 @@ namespace OgrenciServis.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AdresDescription")
-                        .HasColumnType("text");
-
                     b.Property<string>("AdressName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -81,6 +78,9 @@ namespace OgrenciServis.Persistence.Migrations
 
                     b.Property<int?>("DistrictId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("OpenAdress")
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");

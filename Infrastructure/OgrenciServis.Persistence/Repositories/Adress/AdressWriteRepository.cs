@@ -24,7 +24,7 @@ namespace OgrenciServis.Persistence.Repositories
                 Country = cntr,                
                 City = city,
                 District = dstrct,
-                AdresDescription = adress.OpenAdress
+                OpenAdress = adress.OpenAdress
             }) ;
 
             await _AdWrRepo.SaveChangesAsyncc();

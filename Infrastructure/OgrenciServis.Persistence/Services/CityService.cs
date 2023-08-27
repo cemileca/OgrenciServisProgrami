@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OgrenciServis.Business.Abstracts;
 using OgrenciServis.Business.ServicesAbstract;
 using OgrenciServis.Domain.Entities;
 using OgrenciServis.Domain.ViewModel;
@@ -9,9 +10,9 @@ namespace OgrenciServis.Persistence.Services
 {
     public class CityService : ICityService
     {
-        readonly CityWriteRepository _cityWriteRepository;
-        readonly CityReadRepository _cityReadRepository;
-        readonly CountryReadRepository _countryReadRepository;
+         ICityWriteRepository _cityWriteRepository;
+         ICityReadRepository _cityReadRepository;
+         ICountryReadRepository _countryReadRepository;
         readonly private OgrenciServisDbContext _context;
 
         public CityService()
@@ -21,12 +22,11 @@ namespace OgrenciServis.Persistence.Services
             _context = ctx;
 
             _cityWriteRepository = new CityWriteRepository(_context);
-            _countryReadRepository = new CountryReadRepository(_context);
-            _cityReadRepository = new CityReadRepository(_context);
         }
 
         public async Task AddCityAsync(VM_CityAdd vM_City)
         {
+            _countryReadRepository = new CountryReadRepository(_context);
 
             City city = new City();
             city.CityName = vM_City.CityName;
@@ -36,12 +36,17 @@ namespace OgrenciServis.Persistence.Services
             city.Country = country;
             await _cityWriteRepository.AddAsync(city);
             await _cityWriteRepository.SaveChangesAsyncc();
+
+            _countryReadRepository.Equals(null);
         }
 
         public IQueryable<City> GetAllCitiesByCountry(int CountryId)
         {
+            _cityReadRepository = new CityReadRepository(_context);
+
             var query = _cityReadRepository.GetAll().Where(a => a.CountryId == CountryId);
             return query;
+            _cityReadRepository.Equals(null);
         }
 
         public async Task<City> GetCityById(int CityId)
